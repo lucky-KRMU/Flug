@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import Header from './Components/Header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1 className="text-2xl text-center">Hello</h1>
+      <Header />
     </>
   )
 }
