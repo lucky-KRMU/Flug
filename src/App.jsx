@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className='h-[60vh] flex items-center justify-center'>
+      <div className='h-[70vh] flex items-center justify-center'>
         <Hero />
       </div>
       <Footer/>
