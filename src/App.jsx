@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer';
+import Hero from './Components/Hero/Hero';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,7 +9,9 @@ function App() {
   return (
     <>
       <Header />
-      <div className='h-[60vh]'>d</div>
+      <div className='h-[60vh] flex items-center justify-center'>
+        <Hero />
+      </div>
       <Footer/>
     </>
   )
