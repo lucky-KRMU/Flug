@@ -17,8 +17,8 @@ export default function Hero() {
         <section className="bg-blue-50 h-[60vh] w-[80vw] rounded-2xl flex justify-evenly items-center">
             <img src="src\assets\Images\plane-globe.png" alt="Plane on a world tour" className="w-[30vw]" />
             <div>
-                <h1 className="text-blue-950 text-5xl font-bold">Check Your Status</h1>
-                <TypeAnimation className="text-right text-3xl" sequence={["Check Your Flights", 100, "Check Airport Status", 100]} wrapper="h3" speed={5} repeat={Infinity}></TypeAnimation>
+                <h1 className="text-blue-950 text-5xl font-extrabold font-[Space_Grotesk]">Check Your Status</h1>
+                <TypeAnimation className="text-right text-3xl font-semibold text-blue-600 font-[Radio_Canada]" sequence={["Check Your Flights", 100, "Check Airport Status", 100]} wrapper="h3" speed={5} repeat={Infinity}></TypeAnimation>
             </div>
         </section>
         </>
