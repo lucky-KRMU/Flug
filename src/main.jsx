@@ -4,7 +4,7 @@ import Hero from "./Components/Hero/Hero"
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
 import App from './App.jsx'
-import Flights from './Components/Flights/Flights.jsx'
+import SearchFlights from './Components/Flights/SearchFlights.jsx'
 let router = createBrowserRouter([
     {
       path: "/",
@@ -20,7 +20,7 @@ let router = createBrowserRouter([
         },
         {
           path: "flights",
-          element: <Flights />
+          element: <SearchFlights />
         }
   
       ]
