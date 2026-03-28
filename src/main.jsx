@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
 import App from './App.jsx'
 import SearchFlights from './Components/Flights/SearchFlights.jsx'
+import Flights from './Components/Flights/Flights.jsx'
+
+
+
 let router = createBrowserRouter([
     {
       path: "/",
@@ -20,7 +24,7 @@ let router = createBrowserRouter([
         },
         {
           path: "flights",
-          element: <SearchFlights />
+          element: <Flights />
         },
         {
           path: "search/",
