@@ -21,6 +21,15 @@ let router = createBrowserRouter([
         {
           path: "flights",
           element: <SearchFlights />
+        },
+        {
+          path: "search/",
+          children: [
+            {
+              path: "flights",
+              element: <SearchFlights />
+            }
+          ]
         }
   
       ]
