@@ -1,0 +1,95 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 2,
+    "total": 2
+  },
+  "data": [
+    {
+      "flight_date": "2026-03-28",
+      "flight_status": "active",
+
+      "departure": {
+        "airport": "Indira Gandhi International Airport",
+        "timezone": "Asia/Kolkata",
+        "iata": "DEL",
+        "scheduled": "2026-03-28T10:00:00+05:30",
+        "actual": "2026-03-28T10:15:00+05:30",
+        "delay": 15
+      },
+
+      "arrival": {
+        "airport": "Dubai International Airport",
+        "timezone": "Asia/Dubai",
+        "iata": "DXB",
+        "scheduled": "2026-03-28T12:30:00+04:00",
+        "estimated": "2026-03-28T12:45:00+04:00"
+      },
+
+      "airline": {
+        "name": "Emirates",
+        "iata": "EK"
+      },
+
+      "flight": {
+        "number": "513",
+        "iata": "EK513"
+      },
+
+      "aircraft": {
+        "registration": "A6-EBR",
+        "icao": "A388"
+      },
+
+      "live": {
+        "updated": "2026-03-28T09:50:00+00:00",
+        "latitude": 25.276987,
+        "longitude": 55.296249,
+        "altitude": 32000,
+        "direction": 270,
+        "speed_horizontal": 850,
+        "is_ground": false
+      }
+    },
+
+    {
+      "flight_date": "2026-03-28",
+      "flight_status": "landed",
+
+      "departure": {
+        "airport": "Chhatrapati Shivaji Maharaj International Airport",
+        "timezone": "Asia/Kolkata",
+        "iata": "BOM",
+        "scheduled": "2026-03-28T06:00:00+05:30",
+        "actual": "2026-03-28T06:05:00+05:30",
+        "delay": 5
+      },
+
+      "arrival": {
+        "airport": "Heathrow Airport",
+        "timezone": "Europe/London",
+        "iata": "LHR",
+        "scheduled": "2026-03-28T10:30:00+00:00",
+        "actual": "2026-03-28T10:20:00+00:00"
+      },
+
+      "airline": {
+        "name": "British Airways",
+        "iata": "BA"
+      },
+
+      "flight": {
+        "number": "198",
+        "iata": "BA198"
+      },
+
+      "aircraft": {
+        "registration": "G-XLEA",
+        "icao": "B789"
+      },
+
+      "live": null
+    }
+  ]
+}
