@@ -89,7 +89,15 @@
         "icao": "B789"
       },
 
-      "live": null
+      "live": {
+        "updated": "2026-03-28T09:50:00+00:00",
+        "latitude": 25.276987,
+        "longitude": 55.296249,
+        "altitude": 32000,
+        "direction": 270,
+        "speed_horizontal": 850,
+        "is_ground": true
+      }
     }
   ]
 }

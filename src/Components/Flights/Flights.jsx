@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FaPlane } from 'react-icons/fa';
 
 
@@ -13,7 +13,7 @@ function FlightCard({ AirLines, IATA, FROM, TO, FROM_TITLE, TO_TITLE, LandingSta
                     <FaPlane className='translate-y-1 hover:scale-[2] transition-300 ease-in-out'/>
                     <p title={TO_TITLE} className='hover:font-bold hover:scale-[1.05] transition-200 ease-in-out'>{TO}</p>
                 </div>
-                <p className={`text-xl animate-pulse font-semibold font-[Radio_Canada] text-center translate-y-3 ${(LandingStatus) ? "text-green-500" : "text-red-500" }`}>Landed</p>
+                <p className={`text-xl animate-pulse font-semibold font-[Radio_Canada] text-center translate-y-3 ${(LandingStatus) ? "text-green-500" : "text-red-500" }`}>{LandingStatus ? "Landed" : "In Air" }</p>
             </div>
         </>
     );
@@ -22,32 +22,36 @@ function FlightCard({ AirLines, IATA, FROM, TO, FROM_TITLE, TO_TITLE, LandingSta
 
 function Flights() {
 
-    let [airLines, setAirLines] = useState("");
-    let [iata, setIata] = useState("");
-    let [from, setFrom] = useState("");
-    let [to, setTo] = useState("");
+    let [data, setData] = useState([]);
 
     let url = "dummy_flight_json.json";
 
-    const getFlightData = async () => {
-        let data = await fetch(url);
-        let response = await data.json();
-        let flightData = response.data;
-        console.log(flightData);
-        let newData = flightData[0];
-        console.log(newData.departure.iata);
-        setAirLines(newData.airline.name);
-        setIata(newData.flight.iata);
-        setFrom(newData.departure.iata);
-        setTo(newData.arrival.iata);
-    }
+    useEffect(  () => {
+       const loadData =  async ()=>{
+            let data = await fetch(url);
+            let response = await data.json();
+            let flightData = response.data;
+            setData(flightData);
+            console.log(flightData);
+        }
+        loadData();
+    }, [])
 
 
     return (
         <>
-            <div className='w-full'>
-                <FlightCard AirLines={airLines} IATA={iata} FROM={from} TO={to} LandingStatus={true} FROM_TITLE="Indira Gandhi International Airport" TO_TITLE="Dubai International Airport" />
-                <button onClick={getFlightData} className='m-5 p-4 bg-red-500 text-2xl text-white font-bold rounded-2xl cursor-pointer'>Get</button>
+            <div className='w-full h-auto flex justify-center items-center '>
+                <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+                {data.map((data)=>{
+                    return <FlightCard AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
+                })}
+                {data.map((data)=>{
+                    return <FlightCard AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
+                })}
+                {data.map((data)=>{
+                    return <FlightCard AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
+                })}
+                </div>
             </div>
         </>
     )
