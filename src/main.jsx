@@ -4,6 +4,7 @@ import Hero from "./Components/Hero/Hero"
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
 import App from './App.jsx'
+import Flights from './Components/Flights/Flights.jsx'
 let router = createBrowserRouter([
     {
       path: "/",
@@ -16,6 +17,10 @@ let router = createBrowserRouter([
         {
           path: "home",
           element: <Hero />
+        },
+        {
+          path: "flights",
+          element: <Flights />
         }
   
       ]
