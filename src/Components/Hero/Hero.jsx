@@ -14,6 +14,7 @@ export default function Hero() {
     
     return(
         <>
+        <div className="h-[70vh] w-full flex justify-center items-center">
         <section className="bg-blue-50 h-[60vh] w-[80vw] rounded-2xl flex justify-evenly items-center">
             <img src="src\assets\Images\plane-globe.png" alt="Plane on a world tour" className="cursor-pointer w-[30vw] hover:-rotate-10 duration-300 hover:scale-[1.1]" />
             <div className="cursor-pointer ">
@@ -21,6 +22,7 @@ export default function Hero() {
                 <TypeAnimation className="text-right text-4xl font-semibold text-blue-600 font-[Radio_Canada]" sequence={["Check Your Flights", 100, "Check Airport Status", 100]} wrapper="h3" speed={5} repeat={Infinity}></TypeAnimation>
             </div>
         </section>
+        </div>
         </>
     );
 }

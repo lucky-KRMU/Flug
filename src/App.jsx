@@ -1,18 +1,16 @@
 import { useState } from 'react'
-import Header from './Components/Header/Header'
-import Footer from './Components/Footer/Footer';
-import Hero from './Components/Hero/Hero';
+import { Outlet } from 'react-router';
+import Header  from "./Components/Header/Header"
+import Footer from "./Components/Footer/Footer"
 
 function App() {
-  const [count, setCount] = useState(0);
+ 
 
   return (
     <>
-      <Header />
-      <div className='h-[70vh] flex items-center justify-center'>
-        <Hero />
-      </div>
-      <Footer/>
+    <Header />
+    <Outlet />
+    <Footer />
     </>
   )
 }
