@@ -7,6 +7,7 @@ import App from './App.jsx'
 import SearchFlights from './Components/Flights/SearchFlights.jsx'
 import Flights from './Components/Flights/Flights.jsx'
 import Search from './Components/Search/Search.jsx'
+import SearchLayout from './Components/Search/SearchLayout.jsx'
 
 
 
@@ -27,10 +28,14 @@ let router = createBrowserRouter([
           path: "flights",
           element: <Flights />
         },
-        {
-          path: "search/",
-          element: <Search />,
+        { // NOTE: Each nested route with childrens must have an outlet.
+          path: "search",
+          element: <SearchLayout />,
           children: [
+            {
+              path: "",
+              element: <Search />
+            },
             {
               path: "flights",
               element: <SearchFlights />

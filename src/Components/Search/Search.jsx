@@ -21,6 +21,7 @@ function Search() {
         <SearchCard Heading="Flights" to="flights" />
         <SearchCard Heading="Flights" to="flights" />
     </div>
+    
     </section>
     </>
   )
