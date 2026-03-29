@@ -3,8 +3,24 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 function SearchAirlines() {
 
-  const handleSubmit = (e)=> {
+  let url = "../Dummy/dummy_airlines_json.json";
+
+  const handleSubmit = async (e)=> {
     e.preventDefault();
+
+    try {
+      
+      let response = await fetch(url);
+      let data = await response.json();
+      let airlinesData = data.data[0];
+      console.log(airlinesData)
+      
+
+    } catch (error) {
+      
+    }
+
+
   }
 
   return (
