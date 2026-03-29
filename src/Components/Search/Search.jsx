@@ -18,7 +18,7 @@ function Search() {
     <div id='search-options' className='grid lg:grid-cols-3 gap-5'>
         <SearchCard Heading="Flights" to="flights" />
         <SearchCard Heading="Airports" to="airports" />
-        <SearchCard Heading="Airlines" to="" />
+        <SearchCard Heading="Airlines" to="airlines" />
         <SearchCard Heading="Airplanes" to="" />
         <SearchCard Heading="Aircraft Types" to="" />
         <SearchCard Heading="Cities" to="" />
