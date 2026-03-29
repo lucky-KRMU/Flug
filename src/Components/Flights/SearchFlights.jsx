@@ -1,30 +1,78 @@
 import React, { useState } from 'react'
-import { FaMagnifyingGlass } from 'react-icons/fa6'
+import { FaMagnifyingGlass, FaPlane } from 'react-icons/fa6'
 
-const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depTime, depActualTime, arrAirport, arrAirportIATA, arrTime, arrActualTime, flightNumber, airline, aircraftRegistration, aircraftICAO, liveLatitude, liveLongitude, altitude, direction, speed,landed }) => {
+const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depTime, depActualTime, arrAirport, arrAirportIATA, arrTime, arrActualTime, flightNumber, airline, aircraftRegistration, aircraftICAO, liveLatitude, liveLongitude, altitude, direction, speed, landed }) => {
+
   return (
     <>
-      <p>{flightDate}</p>
-      <p>{flightStatus}</p>
-      <p>{depAirport}</p>
-      <p>{depAirportIATA}</p>
-      <p>{depTime}</p>
-      <p>{depActualTime}</p>
-      <p>{arrAirport}</p>
-      <p>{arrAirportIATA}</p>
-      <p>{arrTime}</p>
-      <p>{flightDate}</p>
-      <p>{arrActualTime}</p>
-      <p>{flightNumber}</p>
-      <p>{airline}</p>
-      <p>{aircraftRegistration}</p>
-      <p>{aircraftICAO}</p>
-      <p>{liveLatitude}</p>
-      <p>{liveLongitude}</p>
-      <p>{altitude}</p>
-      <p>{direction}</p>
-      <p>{speed}</p>
-      <p>{landed}</p>
+      <div className='h-auto w-full flex flex-col justify-center items-center '>
+        <div className='border-4 my-5 w-[80vw] p-10 border-blue-950 rounded-xl font-[Radio_Canada]'>
+          <h1 className='text-6xl  text-blue-950 font-[Space_Grotesk] font-bold'>{airline}</h1>
+          <h2 className='text-3xl text-blue-900 font-[Radio_Canada] font-semibold'>{flightNumber}</h2>
+          <div id="date-card" className='flex justify-between text-xl'>
+            <p className='text-blue-900 font-semibold order-2'>{flightDate}</p>
+            <p className="order-1 font-semibold" >{flightStatus}</p>
+          </div>
+          <div id="airportCard" className='flex justify-between items-center my-3'>
+            <div id="depCard">
+              <h2 className='text-left text-5xl font-bold text-blue-900'>{depAirportIATA}</h2>
+              <h3 className='text-left text-xl font-semibold'>{depAirport}</h3>
+              <div id="arrTime">
+                <h4 className='text-l font-semibold'>Scheduled Date & Time of Departure:</h4>
+                <div className='flex justify-between items-center'>  
+              <p className='text-left text-l text-blue-900 font-bold'>{depTime.split('T')[0]}</p>
+              <p className='text-left text-blue-900 font-semibold'>{depTime.split('T')[1].split('+')[0]}</p>
+                </div>
+              </div>
+              <div id="arrActualTime">
+                <h4 className='text-l font-semibold'>Estimated Date & Time of Departure:</h4>
+              <div className='flex justify-between items-center'>  
+              <p className='text-left text-l text-blue-900 font-bold'>{depActualTime.split('T')[0]}</p>
+              <p className='text-left text-blue-900 font-semibold'>{depActualTime.split('T')[1].split('+')[0]}</p>
+                </div>
+              </div>
+            </div>
+            <FaPlane className='text-5xl cursor-pointer text-blue-900 hover:text-blue-950 duration-300 ease-in-out hover:scale-[1.1]' />
+            <div id="arrCard">
+              <h2 className='text-right text-5xl font-bold text-blue-900'>{arrAirportIATA}</h2>
+              <h3 className='text-right text-xl font-semibold'>{arrAirport}</h3>
+              <div id="arrTime">
+                <h4 className='text-l font-semibold'>Scheduled Date & Time of Arrival:</h4>
+                <div className='flex justify-between items-center'>  
+              <p className='text-right text-l text-blue-900 font-bold'>{arrTime.split('T')[0]}</p>
+              <p className='text-right text-blue-900 font-semibold'>{arrTime.split('T')[1].split('+')[0]}</p>
+                </div>
+              </div>
+              <div id="arrActualTime">
+                <h4 className='text-l font-semibold'>Estimated Date & Time of Arrival:</h4>
+              <div className='flex justify-between items-center'>  
+              <p className='text-right text-l text-blue-900 font-bold'>{arrActualTime.split('T')[0]}</p>
+              <p className='text-right text-blue-900 font-semibold'>{arrActualTime.split('T')[1].split('+')[0]}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="aircraftDetails" className=' my-5'>
+            <h4 className='text-xl font-semibold text-blue-950'>Aircraft Details: </h4>
+          <p><span className='font-semibold text-blue-900'>Registration:</span> {aircraftRegistration}</p>
+          <p><span className='font-semibold text-blue-900'>ICAO:</span> {aircraftICAO}</p>
+          </div>
+          <div id="liveDetails">
+          <h4 className='text-xl font-semibold text-blue-950'>Live Aircraft Details: </h4>
+          <p><span className='font-semibold text-blue-900'>Latitude:</span> {liveLatitude}</p>
+          <p><span className='font-semibold text-blue-900'>Longitude:</span> {liveLongitude}</p>
+          <p><span className='font-semibold text-blue-900'>Altitude:</span> {altitude}</p>
+          <p><span className='font-semibold text-blue-900'>Direction:</span> {direction}</p>
+          <p><span className='font-semibold text-blue-900'>Speed:</span> {speed} knots</p>
+          </div>
+          {
+            landed ?
+            <p className='text-2xl text-center font-bold text-green-500 my-2 animate-pulse'>Landed</p>
+            :
+            <p className='text-2xl text-center font-bold my-2 text-blue-500 animate-pulse'>Airborne</p>
+          }
+        </div>
+      </div>
     </>
   );
 }
@@ -53,7 +101,7 @@ function SearchFlights() {
   const [altitude, setAltitude] = useState("");
   const [direction, setDirection] = useState("");
   const [speed, setSpeed] = useState("");
-  const [landed, setLanded] = useState("");
+  const [landed, setLanded] = useState(false);
 
   let url = "../dummy_flight_search_json.json";
 
@@ -74,7 +122,7 @@ function SearchFlights() {
       let response = await data.json();
       let flightData = response.data[0];
 
-    
+
 
       // auxiliary variables
       let departure = flightData.departure;
@@ -91,19 +139,18 @@ function SearchFlights() {
       setArrAirport(arrival.airport);
       setArrAirportIATA(arrival.iata);
       setArrTime(arrival.scheduled);
-      setArrActualTime(arrival.actual);
+      setArrActualTime(arrival.estimated);
       setAirline(flightData.airline.name);
       setFlightNumber(flightData.flight.iata);
       setAircraftRegistration(flightData.aircraft.registration);
-      setAircraftICAO(flightData.aircraft.iaco);
-      setLiveLatitude(live.lattitude);
+      setAircraftICAO(flightData.aircraft.icao);
+      setLiveLatitude(live.latitude);
       setLiveLongitude(live.longitude);
       setAltitude(live.altitude);
       setDirection(live.direction);
-      setSpeed(live.speed);
+      setSpeed(live.speed_horizontal);
       setLanded(live.is_ground);
       setDataFetched(true);
-
     }
     catch (err) {
       console.log(err);
@@ -127,7 +174,12 @@ function SearchFlights() {
           </div>
         </form>
       </div>
-        <FlightInfo flightDate={flightDate} flightNumber={flightNumber} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />
+      {
+        dataFetched ? 
+        <FlightInfo flightDate={flightDate} flightNumber={flightNumber} flightStatus={flightStatus} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />
+        :
+        ""
+      }
     </>
   )
 }
