@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 function SearchAirlines() {
 
+  // Definging the State Variables
+  const [callSign, setCallSign] = useState("");
+  const [id, setId] = useState("");
+  const [fleetAge, setFleetAge] = useState("");
+  const [hub, setHub] = useState("");
+  const [iata, setIata] = useState("");
+  const [icao, setIcao] = useState("");
+  const [accNum, setAccNum] = useState("");
+  const [name, setName] = useState("");
+  const [fleetSize, setFleetSize] = useState("");
+  const [status, setStatus] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [foundDate, setFoundDate] = useState("");
+  const [country, setCountry] = useState("");
+
+
   let url = "../Dummy/dummy_airlines_json.json";
 
+  // function for fetching from api and updating the State/UI
   const handleSubmit = async (e)=> {
     e.preventDefault();
 
