@@ -91,7 +91,12 @@ function SearchAirports() {
           </div>
         </form>
       </div>
-      <AirportCard name={name} iata={iata} icao={icao} latitude={latitude} longitude={longitude} geoName={geoName} timezone={timezone} phone={phone} country={country} countryCode={countryCode} />
+      {
+        fetched ?
+        <AirportCard name={name} iata={iata} icao={icao} latitude={latitude} longitude={longitude} geoName={geoName} timezone={timezone} phone={phone} country={country} countryCode={countryCode} />
+        :
+        ""
+      }
     </>
   )
 }
