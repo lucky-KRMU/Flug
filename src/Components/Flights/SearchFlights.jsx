@@ -1,10 +1,30 @@
 import React, { useState } from 'react'
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 
-const FlightInfo = () => {
+const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depTime, depActualTime, arrAirport, arrAirportIATA, arrTime, arrActualTime, flightNumber, airline, aircraftRegistration, aircraftICAO, liveLatitude, liveLongitude, altitude, direction, speed,landed }) => {
   return (
     <>
-
+      <p>{flightDate}</p>
+      <p>{flightStatus}</p>
+      <p>{depAirport}</p>
+      <p>{depAirportIATA}</p>
+      <p>{depTime}</p>
+      <p>{depActualTime}</p>
+      <p>{arrAirport}</p>
+      <p>{arrAirportIATA}</p>
+      <p>{arrTime}</p>
+      <p>{flightDate}</p>
+      <p>{arrActualTime}</p>
+      <p>{flightNumber}</p>
+      <p>{airline}</p>
+      <p>{aircraftRegistration}</p>
+      <p>{aircraftICAO}</p>
+      <p>{liveLatitude}</p>
+      <p>{liveLongitude}</p>
+      <p>{altitude}</p>
+      <p>{direction}</p>
+      <p>{speed}</p>
+      <p>{landed}</p>
     </>
   );
 }
@@ -107,6 +127,7 @@ function SearchFlights() {
           </div>
         </form>
       </div>
+        <FlightInfo flightDate={flightDate} flightNumber={flightNumber} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />
     </>
   )
 }
