@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 
+
+
+const AirportCard = () => {
+  return(
+    <>
+      <div>
+
+      </div>
+    </>
+  );
+}
+
+
 function SearchAirports() {
+
+  // state Variables for passing Information
+  const [fetched, setFetched] = useState(false);
+  const [name, setName] = useState("");
+  const [iata, setIata] = useState("");
+  const [icao, setIcao] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [geoName, setGeoName] = useState("");
+  const [timezone, setTimezone] = useState("");
+  const [country, setCountry] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  
+
 
   let url = "../Dummy/dummy_airport_json.json";
 
