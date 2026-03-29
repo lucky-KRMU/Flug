@@ -103,7 +103,7 @@ function SearchFlights() {
   const [speed, setSpeed] = useState("");
   const [landed, setLanded] = useState(false);
 
-  let url = "../dummy_flight_search_json.json";
+  let url = "../Dummy/dummy_flight_search_json.json";
 
   /*
   We just encountered the bug:

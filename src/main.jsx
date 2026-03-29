@@ -8,6 +8,7 @@ import SearchFlights from './Components/Flights/SearchFlights.jsx'
 import Flights from './Components/Flights/Flights.jsx'
 import Search from './Components/Search/Search.jsx'
 import SearchLayout from './Components/Search/SearchLayout.jsx'
+import SearchAirports from './Components/Airports/SearchAirports.jsx'
 
 
 
@@ -40,6 +41,10 @@ let router = createBrowserRouter([
               path: "flights",
               element: <SearchFlights />
             },
+            {
+              path: "airports",
+              element: <SearchAirports />
+            }
           ]
         }
   

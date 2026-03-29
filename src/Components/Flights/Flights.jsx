@@ -24,7 +24,7 @@ function Flights() {
 
     let [data, setData] = useState([]);
 
-    let url = "dummy_flight_json.json";
+    let url = "Dummy/dummy_flight_json.json";
 
     useEffect(  () => {
         // Earlier we were using this async function diretly in the callback function of use effect, But it's a bad practice. Because
