@@ -52,9 +52,38 @@ function SearchFlights() {
     try {
       let data = await fetch(url);
       let response = await data.json();
-      let flightData = response.data;
-      console.log(response);
-      console.log("hi")
+      let flightData = response.data[0];
+
+    
+
+      // auxiliary variables
+      let departure = flightData.departure;
+      let arrival = flightData.arrival;
+      let live = flightData.live;
+
+      // Updating the states
+      setFlightDate(flightData.flight_date);
+      setFlightStatus(flightData.flight_status);
+      setDepAirport(departure.airport);
+      setDepAirportIATA(departure.iata);
+      setDepTime(departure.scheduled);
+      setDepActualTime(departure.actual);
+      setArrAirport(arrival.airport);
+      setArrAirportIATA(arrival.iata);
+      setArrTime(arrival.scheduled);
+      setArrActualTime(arrival.actual);
+      setAirline(flightData.airline.name);
+      setFlightNumber(flightData.flight.iata);
+      setAircraftRegistration(flightData.aircraft.registration);
+      setAircraftICAO(flightData.aircraft.iaco);
+      setLiveLatitude(live.lattitude);
+      setLiveLongitude(live.longitude);
+      setAltitude(live.altitude);
+      setDirection(live.direction);
+      setSpeed(live.speed);
+      setLanded(live.is_ground);
+      setDataFetched(true);
+
     }
     catch (err) {
       console.log(err);
