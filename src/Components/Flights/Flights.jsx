@@ -46,8 +46,8 @@ function Flights() {
             <h2 className='text-3xl py-4 w-full h-30  text-blue-950 font-bold font-[Radio_Canada] flex items-center justify-center gap-4 cursor-pointer'>Live Flights Data<FaPlaneDeparture className='hover:scale-125' /></h2>
             <div className='w-full h-auto flex justify-center items-center '>
                 <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
-                {data.map((data)=>{
-                    return <FlightCard AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
+                {data.map((data, key)=>{    // fix key issue in map function
+                    return <FlightCard key={key} AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
                 })}
                
                 </div>

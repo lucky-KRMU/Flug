@@ -6,7 +6,7 @@ import './index.css'
 import App from './App.jsx'
 import SearchFlights from './Components/Flights/SearchFlights.jsx'
 import Flights from './Components/Flights/Flights.jsx'
-import Search from './Components/Search/Search'
+import Search from './Components/Search/Search.jsx'
 
 
 
@@ -34,7 +34,7 @@ let router = createBrowserRouter([
             {
               path: "flights",
               element: <SearchFlights />
-            }
+            },
           ]
         }
   
