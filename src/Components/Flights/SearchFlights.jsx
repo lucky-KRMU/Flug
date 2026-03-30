@@ -25,7 +25,7 @@ const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depT
                 </div>
               </div>
               <div id="arrActualTime">
-                <h4 className='text-l font-semibold'>Estimated Date & Time of Departure:</h4>
+                <h4 className='text-l font-semibold'>Actual Date & Time of Departure:</h4>
               <div className='flex justify-between items-center'>  
               <p className='text-left text-l text-blue-900 font-bold'>{depActualTime.split('T')[0]}</p>
               <p className='text-left text-blue-900 font-semibold'>{depActualTime.split('T')[1].split('+')[0]}</p>

@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
+const AirlinesCard = () => {
+  return(
+    <>
+    
+    </>
+  );
+}
+
+
 function SearchAirlines() {
 
   // Definging the State Variables

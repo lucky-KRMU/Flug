@@ -6,11 +6,12 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 const AirportCard = ({ name, iata, icao, latitude, longitude, geoName, timezone, phone, country, countryCode }) => {
   return (
     <>
-      <div className='w-full h-70 my-2 mb-10 flex items-center justify-center flex-col'>
-        <div id="card" className='w-[80%] p-8 font-[Radio_Canada] border-blue-950 border-4 rounded-2xl'>
+      <div className='w-full h-70 mb-10 flex items-center justify-center flex-col'>
+        <div id="card" className='h-auto w-[80%] p-8 font-[Radio_Canada] border-blue-950 border-4 rounded-2xl'>
           <h1 className='text-5xl text-blue-950 font-[Space_Grotesk] font-extrabold'>{name}</h1>
           <h3 className='text-2xl font-semibold text-blue-900'>{iata}</h3>
           <h3 className='text-2xl font-semibold text-blue-900'>{icao}</h3>
+          <h2 className='text-2xl font-semibold text-blue-950 py-2'>Details:</h2>
           <div className='flex justify-between items-center'>
             <div>
               <p className='text-xl'><span className='font-semibold text-blue-800'>Latitude: </span>{latitude}</p>
