@@ -35,6 +35,25 @@ function SearchAirplanes() {
     let data = await response.json();
     let airplaneData = data.data[0];
 
+    // updating the state variables
+    setIata(airplaneData.iata_type);
+    setAirlineICAO(airplaneData.airline_icao_code);
+    setAirlineIATA(airplaneData.airline_iata_code);
+    setAirplaneIATA(airplaneData.iata_code_long);
+    setConstructionNumber(airplaneData.construction_number);
+    setDeliveryDate(airplaneData.deliveryDate);
+    setEngineCount(airplaneData.engine_count);
+    SetEngineType(airplaneData.engines_type);
+    setMaidenFlightDate(airplaneData.first_flight_date);
+    setModel(airplaneData.model_code);
+    setRegistrationNumber(airplaneData.registration_number);
+    setTestRegistrationNumber(airplaneData.test_registration_number);
+    setOwner(airplaneData.plane_owner);
+    setSeries(airplaneData.plane_series);
+    setStatus(airplaneData.plane_status);
+    setProductionLine(airplaneData.production_line);
+    setRegistrationDate(airplaneData.registration_date);
+    setRollOutDate(airplaneData.rollout_date);
 
 
   }
