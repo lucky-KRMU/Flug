@@ -1,6 +1,33 @@
 import React, { useState } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
 
+const AirplaneCard = ({iata, airlineICAO, airlineIATA, constructionNumber, deliveryDate, engineCount, engineType, maidenFlightDate, model, registrationNumber, testRegistrationNumber, owner, series, status, productionLine, registrationDate, rollOutDate}) => {
+
+  return(
+    <>
+      <p>{iata}</p>
+      <p>{airlineICAO}</p>
+      <p>{airlineIATA}</p>
+      <p>{constructionNumber}</p>
+      <p>{deliveryDate}</p>
+      <p>{engineCount}</p>
+      <p>{engineType}</p>
+      <p>{maidenFlightDate.split("T")[0]}</p>
+      <p>{model}</p>
+      <p>{registrationNumber}</p>
+      <p>{testRegistrationNumber}</p>
+      <p>{owner}</p>
+      <p>{series}</p>
+      <p>{status}</p>
+      <p>{productionLine}</p>
+      <p>{registrationDate}</p>
+      <p>{rollOutDate}</p>
+    </>
+  );
+
+}
+
+
 function SearchAirplanes() {
 
   // State Variables for Airplane
@@ -61,6 +88,18 @@ function SearchAirplanes() {
   return (
     <>
     <SearchForm searchBy="Airplanes" placeholder="Registration Number" handleFormSubmit={handleSubmit} />
+    {/* 
+    
+    <p>{registrationNumber}</p>
+      <p>{testRegistrationNumber}</p>
+      <p>{owner}</p>
+      <p>{series}</p>
+      <p>{status}</p>
+      <p>{productionLine}</p>
+      <p>{registrationDate}</p>
+      <p>{rollOutDate}</p>
+    */}
+    <AirplaneCard iata={iata} airlineICAO={airlineICAO} airlineIATA={airlineIATA} constructionNumber={constructionNumber} deliveryDate={deliveryDate} engineCount={engineCount} engineType={engineType} maidenFlightDate={maidenFlightDate} model={model} registrationNumber={registrationNumber} testRegistrationNumber={testRegistrationNumber} owner={owner} series={series} status={status} productionLine={productionLine} registrationDate={registrationDate} rollOutDate={rollOutDate} />
     </>
   )
 }
