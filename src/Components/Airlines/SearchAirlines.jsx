@@ -38,6 +38,7 @@ const AirlinesCard = ({ callSign, fleetAge, hub, iata, icao, accNum, name, fleet
 function SearchAirlines() {
 
   // Definging the State Variables
+  const [fetched, setFetched] = useState(false);
   const [callSign, setCallSign] = useState("");
   const [fleetAge, setFleetAge] = useState("");
   const [hub, setHub] = useState("");
@@ -77,6 +78,7 @@ function SearchAirlines() {
       setCountryCode(airlinesData.country_iso2);
       setFoundDate(airlinesData.date_founded);
       setCountry(airlinesData.country_name);
+      setFetched(true);
 
 
     } catch (error) {
@@ -97,7 +99,12 @@ function SearchAirlines() {
           </div>
         </form>
       </div>
-      <AirlinesCard callSign={callSign} fleetAge={fleetAge} hub={hub} iata={iata} icao={icao} accNum={accNum} name={name} fleetSize={fleetSize} status={status} countryCode={countryCode} foundDate={foundDate} country={country} />
+      {
+        fetched ?
+          <AirlinesCard callSign={callSign} fleetAge={fleetAge} hub={hub} iata={iata} icao={icao} accNum={accNum} name={name} fleetSize={fleetSize} status={status} countryCode={countryCode} foundDate={foundDate} country={country} />
+          :
+          ""
+      }
     </>
   )
 }
