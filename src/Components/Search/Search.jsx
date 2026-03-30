@@ -19,7 +19,7 @@ function Search() {
         <SearchCard Heading="Flights" to="flights" />
         <SearchCard Heading="Airports" to="airports" />
         <SearchCard Heading="Airlines" to="airlines" />
-        <SearchCard Heading="Airplanes" to="" />
+        <SearchCard Heading="Airplanes" to="airplanes" />
         <SearchCard Heading="Aircraft Types" to="" />
         <SearchCard Heading="Cities" to="" />
         <SearchCard Heading="Countries" to="" />
