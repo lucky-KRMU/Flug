@@ -1,13 +1,19 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import SearchForm from "../SearchForm/SearchForm"
 
 
 const AircraftTypeCard = ({ iata, name, type }) => {
-    return(
+    return (
         <>
-        <p>{iata}</p>
-        <p>{name}</p>
-        <p>{type}</p>
+            <div className='h-[70vh] w-full flex items-center justify-center font-[Radio_Canada]'>
+                <div className='w-[80%] h-auto flex flex-col items-center justify-evenly gap-5 p-3 border-4 rounded-xl border-blue-950'>
+                    <h1 className='font-[Space_Grotesk] font-semibold text-blue-950 text-5xl'>{name}</h1>
+                    <div className='w-full h-full flex items-center justify-between text-xl'>
+                        <p><span className='font-semibold text-blue-900'>IATA Code: </span>{iata}</p>
+                        <p className='capitalize'><span className='font-semibold text-blue-900'>Type: </span>{type.replaceAll("_", " ")}</p>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }
@@ -27,21 +33,21 @@ function SearchAircraftType() {
 
         let response = await fetch(url);
         let data = await response.json();
-        
+
         let aircraftTypeData = data.data[0];
-        
+
         setIata(aircraftTypeData.iata_code);
         setName(aircraftTypeData.aircraft_name);
         setType(aircraftTypeData.plane_type_id);
 
     }
 
-  return (
-    <>
-    <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
-    <AircraftTypeCard iata={iata} name={name} type={type} />
-    </>
-  )
+    return (
+        <>
+            <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
+            <AircraftTypeCard iata={iata} name={name} type={type} />
+        </>
+    )
 }
 
 export default SearchAircraftType
