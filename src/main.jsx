@@ -57,6 +57,10 @@ let router = createBrowserRouter([
               element: <SearchAirplanes />
             },
             {
+              path: "aircraft",
+              element: <SearchAircraftType />
+            },
+            {
               path: "aircraft/type",
               element: <SearchAircraftType />
             }
