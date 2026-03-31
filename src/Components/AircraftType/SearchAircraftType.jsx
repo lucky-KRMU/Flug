@@ -1,6 +1,18 @@
 import React, {useState} from 'react'
 import SearchForm from "../SearchForm/SearchForm"
 
+
+const AircraftTypeCard = ({ iata, name, type }) => {
+    return(
+        <>
+        <p>{iata}</p>
+        <p>{name}</p>
+        <p>{type}</p>
+        </>
+    );
+}
+
+
 function SearchAircraftType() {
 
     // State Variables
@@ -18,12 +30,16 @@ function SearchAircraftType() {
         
         let aircraftTypeData = data.data[0];
         
+        setIata(aircraftTypeData.iata_code);
+        setName(aircraftTypeData.aircraft_name);
+        setType(aircraftTypeData.plane_type_id);
 
     }
 
   return (
     <>
     <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
+    <AircraftTypeCard iata={iata} name={name} type={type} />
     </>
   )
 }
