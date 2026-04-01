@@ -2,22 +2,81 @@
   "pagination": {
     "limit": 100,
     "offset": 0,
-    "count": 100,
+    "count": 6,
     "total": 1669022
   },
   "data": [
     {
-      "id": "string",
-      "gmt": "string",
-      "city_id": "string",
-      "iata_code": "string",
-      "country_iso2": "string",
-      "geoname_id": "string",
-      "latitude": 0,
-      "longitude": 0,
-      "city_name": "string",
-      "timezone": "string"
+      "id": "11",
+      "gmt": "-5",
+      "city_id": "NYC",
+      "iata_code": "NYC",
+      "country_iso2": "US",
+      "geoname_id": "5128581",
+      "latitude": 40.7128,
+      "longitude": -74.0060,
+      "city_name": "New York",
+      "timezone": "America/New_York"
+    },
+    {
+      "id": "12",
+      "gmt": "+1",
+      "city_id": "PAR",
+      "iata_code": "PAR",
+      "country_iso2": "FR",
+      "geoname_id": "2988507",
+      "latitude": 48.8566,
+      "longitude": 2.3522,
+      "city_name": "Paris",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "id": "13",
+      "gmt": "+1",
+      "city_id": "BER",
+      "iata_code": "BER",
+      "country_iso2": "DE",
+      "geoname_id": "2950159",
+      "latitude": 52.5200,
+      "longitude": 13.4050,
+      "city_name": "Berlin",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "id": "14",
+      "gmt": "+10",
+      "city_id": "SYD",
+      "iata_code": "SYD",
+      "country_iso2": "AU",
+      "geoname_id": "2147714",
+      "latitude": -33.8688,
+      "longitude": 151.2093,
+      "city_name": "Sydney",
+      "timezone": "Australia/Sydney"
+    },
+    {
+      "id": "15",
+      "gmt": "+8",
+      "city_id": "SIN",
+      "iata_code": "SIN",
+      "country_iso2": "SG",
+      "geoname_id": "1880252",
+      "latitude": 1.3521,
+      "longitude": 103.8198,
+      "city_name": "Singapore",
+      "timezone": "Asia/Singapore"
+    },
+    {
+      "id": "16",
+      "gmt": "-3",
+      "city_id": "RIO",
+      "iata_code": "RIO",
+      "country_iso2": "BR",
+      "geoname_id": "3451190",
+      "latitude": -22.9068,
+      "longitude": -43.1729,
+      "city_name": "Rio de Janeiro",
+      "timezone": "America/Sao_Paulo"
     }
   ]
 }
-
