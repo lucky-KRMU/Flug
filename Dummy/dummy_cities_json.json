@@ -1,0 +1,23 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 100,
+    "total": 1669022
+  },
+  "data": [
+    {
+      "id": "string",
+      "gmt": "string",
+      "city_id": "string",
+      "iata_code": "string",
+      "country_iso2": "string",
+      "geoname_id": "string",
+      "latitude": 0,
+      "longitude": 0,
+      "city_name": "string",
+      "timezone": "string"
+    }
+  ]
+}
+
