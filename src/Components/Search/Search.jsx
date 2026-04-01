@@ -21,7 +21,7 @@ function Search() {
         <SearchCard Heading="Airlines" to="airlines" />
         <SearchCard Heading="Airplanes" to="airplanes" />
         <SearchCard Heading="Aircraft Types" to="aircraft/type" />
-        <SearchCard Heading="Cities" to="" />
+        <SearchCard Heading="Cities" to="cities" />
         <SearchCard Heading="Countries" to="" />
         <SearchCard Heading="Taxes" to="" />
     </div>
