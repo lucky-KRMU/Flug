@@ -3,6 +3,7 @@ import Hero from "../Hero/Hero"
 import { NavLink } from 'react-router'
 import { GiPlaneWing } from "react-icons/gi";
 import { FaPlaneUp } from "react-icons/fa6";
+import { MdOutlineAttachEmail, MdOutlineInsertComment  } from "react-icons/md";
 
 // SearchCard for the search section
 function SearchCard({ Heading, to }) {
@@ -40,6 +41,23 @@ function Home() {
                     <p>
                         From intuitive search to seamless navigation, every detail is crafted to make your journey planning effortless.
                     </p>
+                </div>
+            </section>
+            <section id="contactUs" className='my-10 text-center'>
+                <h1 className='text-4xl font-semibold text-blue-950'>Contact Us</h1>
+                <div className='my-5 text-xl text-blue-900 flex flex-col items-center justify-center'>
+
+                    <p>Have questions, feedback, or suggestions? We’d love to hear from you. <br />
+                        Whether you’re exploring flights or just getting started with Flug, feel free to reach out anytime </p>
+                        <p className='w-[60%] flex justify-between items-center my-5'>
+                            <div className='flex justify-center items-center gap-1'>
+                            <MdOutlineAttachEmail /> <span>Email :</span> <p>support@flug.com</p>
+                            </div>
+                            <div className='flex justify-center items-center gap-1'>
+                            <MdOutlineInsertComment /> <p>We typically respond within 24 hours.</p>
+                            </div>
+                            
+                        </p>
                 </div>
             </section>
         </>
