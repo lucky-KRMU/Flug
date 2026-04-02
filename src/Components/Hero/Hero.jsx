@@ -29,8 +29,7 @@ export default function Hero() {
                             "Check Awesome Airplanes", 100,
                             "Check Aircrafts Types", 100,
                             "Check City Status", 100,
-                            "Check Country Status", 100,
-                            "Check Taxes Status", 100
+                            "Check Country Status", 100
                         ]} wrapper="h3" speed={5} repeat={Infinity}></TypeAnimation>
                     </div>
                 </section>
