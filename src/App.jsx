@@ -8,9 +8,12 @@ function App() {
 
   return (
     <>
+    {/* Default font */}
+    <div className='font-[Radio_Canada]'>
     <Header />
     <Outlet />
     <Footer />
+    </div>
     </>
   )
 }
