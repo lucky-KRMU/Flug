@@ -13,6 +13,7 @@ import SearchAirlines from './Components/Airlines/SearchAirlines.jsx'
 import SearchAirplanes from './Components/Airplanes/SearchAirplanes.jsx'
 import SearchAircraftType from './Components/AircraftType/SearchAircraftType.jsx'
 import SearchCities from './Components/Cities/SearchCities.jsx'
+import SearchCountries from './Components/Countries/SearchCountries.jsx'
 
 
 
@@ -68,6 +69,10 @@ let router = createBrowserRouter([
             {
               path: "cities",
               element: <SearchCities />
+            },
+            {
+              path: "countries",
+              element: <SearchCountries />
             }
           ]
         }
