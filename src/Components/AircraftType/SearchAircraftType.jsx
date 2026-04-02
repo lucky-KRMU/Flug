@@ -28,6 +28,7 @@ function SearchAircraftType() {
 
 
     // State Variables
+    const [fetched, setFetched] = useState(false);
     const [iata, setIata] = useState("");
     const [name, setName] = useState("");
     const [type, setType] = useState("");
@@ -46,12 +47,18 @@ function SearchAircraftType() {
         setName(aircraftTypeData.aircraft_name);
         setType(aircraftTypeData.plane_type_id);
 
+        setFetched(true);
+
     }
 
     return (
         <>
             <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
-            <AircraftTypeCard iata={iata} name={name} type={type} />
+            {
+                fetched ?
+                <AircraftTypeCard iata={iata} name={name} type={type} />
+                : ""
+            }
         </>
     )
 }
