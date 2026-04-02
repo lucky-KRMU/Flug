@@ -4,14 +4,26 @@ import SearchForm from '../SearchForm/SearchForm'
 const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, timeZone }) => {
     return (
         <>
-        <p>{gmt}</p>
-        <p>{iata}</p>
-        <p>{country}</p>
-        <p>{geoname}</p>
-        <p>{latitude}</p>
-        <p>{longitude}</p>
-        <p>{name}</p>
-        <p>{timeZone}</p>
+            <div className='h-[50vh] w-full flex items-center justify-center my-10 font-[Radio_Canada]'>
+                <div className='w-[80%] h-full flex flex-col justify-between text-xl  border-4 border-blue-950 rounded-xl p-5'>
+                    <h1 className='text-6xl font-[Space_Grotesk] m-3'>{name}</h1>
+                    <div className='flex justify-between items-center'>
+                        <div>
+                            <p><span className='text-blue-800 font-semibold'>IATA: </span>{iata}</p>
+                            <p><span className='text-blue-800 font-semibold'>Country: </span>{country}</p>
+                            <p><span className='text-blue-800 font-semibold'>Geoname: </span>{geoname}</p>
+                        </div>
+                        <div>
+                            <p><span className='text-blue-800 font-semibold'>Latitude: </span>{latitude}</p>
+                            <p><span className='text-blue-800 font-semibold'>Longitude: </span>{longitude}</p>
+                        </div>
+                    </div>
+                    <div>
+                    <p><span className='text-blue-800 font-semibold'>GMT: </span>{gmt}</p>
+                    <p><span className='text-blue-800 font-semibold'>Time Zone: </span>{timeZone}</p>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }
@@ -51,7 +63,7 @@ function SearchCities() {
         setName(cityData.city_name);
         setTimeZone(cityData.timezone);
 
-        
+
     }
 
     return (
