@@ -23,7 +23,6 @@ function Search() {
         <SearchCard Heading="Aircraft Types" to="aircraft/type" />
         <SearchCard Heading="Cities" to="cities" />
         <SearchCard Heading="Countries" to="countries" />
-        <SearchCard Heading="Taxes" to="" />
     </div>
     
     </section>
