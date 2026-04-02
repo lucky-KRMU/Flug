@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Hero from "./Components/Hero/Hero"
+import Home from "./Components/Home/Home"
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
 import App from './App.jsx'
@@ -25,11 +25,11 @@ let router = createBrowserRouter([
       children: [
         {
           path: "",
-          element: <Hero />
+          element: <Home />
         },
         {
           path: "home",
-          element: <Hero />
+          element: <Home />
         },
         {
           path: "flights",
