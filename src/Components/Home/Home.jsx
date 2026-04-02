@@ -9,7 +9,7 @@ import { MdOutlineAttachEmail, MdOutlineInsertComment  } from "react-icons/md";
 function SearchCard({ Heading, to }) {
     return (
         <>
-            <h3 className='h-30 w-60 m-6 text-3xl text-blue-900 flex items-center justify-center border-2 rounded-xl cursor-pointer hover:scale-[1.2] hover:font-semibold hover:border-4 hover:rounded-3xl duration-200 ease-out '><NavLink to={to}>{Heading}</NavLink></h3>
+           <h3 className='h-30 w-60 m-6 text-3xl text-blue-900 flex items-center justify-center border-2 rounded-xl cursor-pointer hover:scale-[1.2] hover:font-semibold hover:border-4 hover:text-white hover:bg-blue-900 hover:border-blue-950 hover:rounded-3xl duration-200 ease-out '><NavLink to={to}>{Heading}</NavLink></h3>
 
         </>
     );
