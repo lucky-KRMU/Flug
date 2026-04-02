@@ -6,7 +6,7 @@ const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, time
         <>
             <div className='h-[50vh] w-full flex items-center justify-center my-10 font-[Radio_Canada]'>
                 <div className='w-[80%] h-full flex flex-col justify-between text-xl  border-4 border-blue-950 rounded-xl p-5'>
-                    <h1 className='text-6xl font-[Space_Grotesk] m-3'>{name}</h1>
+                    <h1 className='text-6xl font-[Space_Grotesk] font-semibold text-blue-950 m-3'>{name}</h1>
                     <div className='flex justify-between items-center'>
                         <div>
                             <p><span className='text-blue-800 font-semibold'>IATA: </span>{iata}</p>
