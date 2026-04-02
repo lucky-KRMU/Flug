@@ -31,6 +31,7 @@ const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, time
 function SearchCities() {
 
     // Necessary state variables
+    const [fetched, setFetched] = useState(false);
     const [gmt, setGmt] = useState("");
     const [iata, setIata] = useState("");
     const [country, setCountry] = useState("");
@@ -62,14 +63,18 @@ function SearchCities() {
         setLongitude(cityData.longitude);
         setName(cityData.city_name);
         setTimeZone(cityData.timezone);
-
+        setFetched(true);
 
     }
 
     return (
         <>
             <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} />
-            <CityCard gmt={gmt} iata={iata} country={country} geoname={geoname} latitude={latitude} longitude={longitude} name={name} timeZone={timeZone} />
+            {
+                fetched ?
+                <CityCard gmt={gmt} iata={iata} country={country} geoname={geoname} latitude={latitude} longitude={longitude} name={name} timeZone={timeZone} />
+                : ""
+            }
         </>
     )
 }
