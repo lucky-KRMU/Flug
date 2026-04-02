@@ -44,6 +44,7 @@ function SearchCountries() {
     }, [])
 
     // Necessary State Variables
+    const [fetched, setFetched] = useState(false);
     const [capital, setCapital] = useState("");
     const [currCode, setCurrCode] = useState("");
     const [fips, setFips] = useState("");
@@ -81,6 +82,7 @@ function SearchCountries() {
             setIso(countryData.country_iso_numeric);
             setPhonePrefix(countryData.phone_prefix);
             setPopulation(JSON.parse(countryData.population));
+            setFetched(true);
 
         } catch (err) {
             console.log(err);
@@ -94,8 +96,11 @@ function SearchCountries() {
     return (
         <>
             <SearchForm searchBy="Country" placeholder="Country name" handleFormSubmit={handleSubmit} />
-
-            <CountryCard capital={capital} currCode={currCode} fips={fips} countryIso={countryIso} continent={continent} country={country} currency={currency} iso={iso} phonePrefix={phonePrefix} population={population.toLocaleString('en-US')} />
+            {
+                fetched ?
+                <CountryCard capital={capital} currCode={currCode} fips={fips} countryIso={countryIso} continent={continent} country={country} currency={currency} iso={iso} phonePrefix={phonePrefix} population={population.toLocaleString('en-US')} />
+                : ""
+            }
 
         </>
     )
