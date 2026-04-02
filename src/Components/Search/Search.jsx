@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router';
+import Loading from '../Loading/Loading';
 
 function SearchCard({Heading, to}) {
     return(
         <>
-            <h3 className='h-30 w-60 m-6 text-4xl text-blue-900 flex items-center justify-center border-2 rounded-xl cursor-pointer hover:scale-[1.2] hover:font-semibold hover:border-4 hover:rounded-3xl duration-200 ease-out '><Link to={to}>{Heading}</Link></h3>
+            <h3 className='h-30 w-60 m-6 text-3xl text-blue-900 flex items-center justify-center border-2 rounded-xl cursor-pointer hover:scale-[1.2] hover:font-semibold hover:border-4 hover:rounded-3xl duration-200 ease-out '><Link to={to}>{Heading}</Link></h3>
             
         </>
     );
