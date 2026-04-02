@@ -38,6 +38,11 @@ function Flights() {
             console.log(flightData);
         }
         loadData();
+
+
+        // changing the document
+        document.title = "Live Flights | Flug"
+
     }, []); // also we earlier used data in the dependency array but no, we don't have to use it as it would be updated again and again, and so it would be re-rendered again and again. 
 
 

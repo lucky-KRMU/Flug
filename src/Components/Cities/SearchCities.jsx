@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
 
 const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, timeZone }) => {
@@ -29,6 +29,11 @@ const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, time
 }
 
 function SearchCities() {
+
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "City | Flug"
+    }, [])
 
     // Necessary state variables
     const [fetched, setFetched] = useState(false);

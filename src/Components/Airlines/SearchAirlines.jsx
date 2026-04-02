@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { FaMagnifyingGlass } from 'react-icons/fa6';
+import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
 
 const AirlinesCard = ({ callSign, fleetAge, hub, iata, icao, accNum, name, fleetSize, status, countryCode, foundDate, country }) => {
@@ -37,6 +36,11 @@ const AirlinesCard = ({ callSign, fleetAge, hub, iata, icao, accNum, name, fleet
 
 
 function SearchAirlines() {
+
+  // changing the Document Title
+    useEffect(()=>{
+        document.title = "Airlines | Flug"
+    }, [])
 
   // Definging the State Variables
   const [fetched, setFetched] = useState(false);

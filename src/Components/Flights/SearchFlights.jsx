@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaPlane } from 'react-icons/fa6'
 import SearchForm from '../SearchForm/SearchForm';
 
@@ -117,6 +117,11 @@ function SearchFlights() {
   */
 
   const handleGetData = async (e) => {
+
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "Aircraft Type | Flug"
+    }, [])
     
     e.preventDefault();
     try {

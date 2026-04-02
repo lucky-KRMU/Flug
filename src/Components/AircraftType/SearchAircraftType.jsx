@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchForm from "../SearchForm/SearchForm"
 
 
@@ -20,6 +20,12 @@ const AircraftTypeCard = ({ iata, name, type }) => {
 
 
 function SearchAircraftType() {
+    
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "Aircraft Type | Flug"
+    }, [])
+
 
     // State Variables
     const [iata, setIata] = useState("");

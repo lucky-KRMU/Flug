@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchForm from "../SearchForm/SearchForm"
 
 
@@ -37,6 +37,11 @@ const CountryCard = ({ capital, currCode, fips, countryIso, continent, country, 
 
 
 function SearchCountries() {
+
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "Country | Flug"
+    }, [])
 
     // Necessary State Variables
     const [capital, setCapital] = useState("");

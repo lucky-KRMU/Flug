@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { FaMagnifyingGlass } from 'react-icons/fa6'
+import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
 
 
@@ -34,6 +33,11 @@ const AirportCard = ({ name, iata, icao, latitude, longitude, geoName, timezone,
 
 
 function SearchAirports() {
+
+  // changing the Document Title
+  useEffect(() => {
+    document.title = "Airport | Flug"
+  }, [])
 
   // state Variables for passing Information
   const [fetched, setFetched] = useState(false);
@@ -87,9 +91,9 @@ function SearchAirports() {
       <SearchForm searchBy="Airport Name" placeholder="Airport Name" handleFormSubmit={handleSubmit} />
       {
         fetched ?
-        <AirportCard name={name} iata={iata} icao={icao} latitude={latitude} longitude={longitude} geoName={geoName} timezone={timezone} phone={phone} country={country} countryCode={countryCode} />
-        :
-        ""
+          <AirportCard name={name} iata={iata} icao={icao} latitude={latitude} longitude={longitude} geoName={geoName} timezone={timezone} phone={phone} country={country} countryCode={countryCode} />
+          :
+          ""
       }
     </>
   )

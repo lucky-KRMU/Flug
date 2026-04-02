@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
 
-
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "Flug"
+    }, [])
 
 
 

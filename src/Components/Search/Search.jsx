@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router';
 
 function SearchCard({Heading, to}) {
@@ -11,6 +11,12 @@ function SearchCard({Heading, to}) {
 }
 
 function Search() {
+
+    // changing the Document Title
+    useEffect(()=>{
+        document.title = "Search | Flug"
+    }, [])
+
   return (
     <>
     <section id="search" className='min-h-[70vh] w-auto flex flex-col items-center justify-center'>
