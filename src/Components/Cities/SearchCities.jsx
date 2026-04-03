@@ -98,7 +98,7 @@ function SearchCities() {
 
     return (
         <>
-            <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleCity} />
+            <SearchForm searchBy="City" placeholder="City IATA" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleCity} />
             {
                 loading ?
                     <Loading />

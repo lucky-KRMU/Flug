@@ -57,10 +57,14 @@ function SearchCountries() {
     const [iso, setIso] = useState("");
     const [phonePrefix, setPhonePrefix] = useState("");
     const [population, setPopulation] = useState(0);
+    const [inputVal, setInputVal] = useState("");
 
+
+    let API_KEY = import.meta.env.VITE_API_KEY;
 
     // url
-    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_countries_json.json"
+    const url = `https://api.aviationstack.com/v1/countries?country_iso2=${inputVal}&access_key=${API_KEY}`;
+    const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
     // handle Submit function to search for the country
     const handleSubmit = async (e) => {
@@ -77,16 +81,16 @@ function SearchCountries() {
             let countryData = data.data[0];
 
             // updating the state
-            setCapital(countryData.capital);
-            setCurrCode(countryData.currency_code);
-            setFips(countryData.fips_code);
-            setCountryIso(countryData.country_iso3);
-            setContinent(countryData.continent);
-            setCountry(countryData.country_name);
-            setCurrency(countryData.currency_name);
-            setIso(countryData.country_iso_numeric);
-            setPhonePrefix(countryData.phone_prefix);
-            setPopulation(JSON.parse(countryData.population));
+            setCapital(countryData.capital ? countryData.capital : "UNAVAILABLE");
+            setCurrCode(countryData.currency_code ? countryData.currency_code : "UNAVAILABLE");
+            setFips(countryData.fips_code ? countryData.fips_code : "UNAVAILABLE");
+            setCountryIso(countryData.country_iso3 ? countryData.country_iso3 : "UNAVAILABLE");
+            setContinent(countryData.continent ? countryData.continent : "UNAVAILABLE");
+            setCountry(countryData.country_name ? countryData.country_name : "UNAVAILABLE");
+            setCurrency(countryData.currency_name ? countryData.currency_name :  "UNAVAILABLE");
+            setIso(countryData.country_iso_numeric ? countryData.country_iso_numeric : "UNAVAILABLE");
+            setPhonePrefix(countryData.phone_prefix ? countryData.phone_prefix : "UNAVAILABLE");
+            setPopulation(countryData.population ? JSON.parse(countryData.population) : "UNAVAILABLE");
             setFetched(true);
             setLoading(false);
 
@@ -107,9 +111,15 @@ function SearchCountries() {
 
     }
 
+
+    const handleCountry = (e) => {
+        setInputVal(e.target.value.toUpperCase());
+    }
+
     return (
         <>
-            <SearchForm searchBy="Country" placeholder="Country name" handleFormSubmit={handleSubmit} />
+            <SearchForm searchBy="Country" placeholder="Country ISO 2" handleFormSubmit={handleSubmit}
+            value={inputVal} handleChange={handleCountry} />
             {
                 loading ?
                     <Loading />
