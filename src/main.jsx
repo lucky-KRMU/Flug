@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Home from "./Components/Home/Home"
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createHashRouter, RouterProvider } from 'react-router'
 import './index.css'
 import App from './App.jsx'
 import SearchFlights from './Components/Flights/SearchFlights.jsx'
@@ -18,7 +18,7 @@ import NotFound from './Components/NotFound/NotFound.jsx'
 
 
 
-let router = createBrowserRouter([
+let router = createHashRouter([
     {
       path: "/",
       element: <App />,
