@@ -49,8 +49,8 @@ function Home() {
 
                     <div>Have questions, feedback, or suggestions? We’d love to hear from you. <br />
                         Whether you’re exploring flights or just getting started with Flug, feel free to reach out anytime </div>
-                        <div className='w-[60%] flex justify-between items-center my-5'>
-                            <div className='flex justify-center items-center gap-1'>
+                        <div className='w-[60%] md:flex sm:flex-col  justify-between items-center my-5'>
+                            <div className='flex justify-center items-center md:gap-1'>
                             <MdOutlineAttachEmail /> <span>Email :</span> <p>support@flug.com</p>
                             </div>
                             <div className='flex justify-center items-center gap-1'>
