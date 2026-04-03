@@ -6,7 +6,7 @@ import Loading from "../Loading/Loading"
 const AirportCard = ({ name, iata, icao, latitude, longitude, geoName, timezone, phone, country, countryCode }) => {
   return (
     <>
-      <div className='w-full h-70 mb-10 flex items-center justify-center flex-col'>
+      <div className='w-full h-[70vh] flex items-center justify-center flex-col'>
         <div id="card" className='h-auto w-[80%] p-8 font-[Radio_Canada] border-blue-950 border-4 rounded-xl'>
           <h1 className='text-5xl text-blue-950 font-[Space_Grotesk] font-extrabold'>{name}</h1>
           <h3 className='text-2xl font-semibold text-blue-900'>{iata}</h3>
