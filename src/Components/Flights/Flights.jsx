@@ -13,7 +13,7 @@ function FlightCard({ AirLines, IATA, FROM, TO, FROM_TITLE, TO_TITLE, LandingSta
                     <FaPlane className='translate-y-1 hover:scale-[2] transition-300 ease-in-out'/>
                     <p title={TO_TITLE} className='hover:font-bold hover:scale-[1.05] transition-200 ease-in-out'>{TO}</p>
                 </div>
-                <p className={`text-xl animate-pulse font-semibold font-[Radio_Canada] text-center translate-y-3 ${(LandingStatus) ? "text-green-500" : "text-red-500" }`}>{LandingStatus ? "Landed" : "In Air" }</p>
+                
             </div>
         </>
     );
@@ -25,7 +25,10 @@ function Flights() {
     let [loading, setLoading] = useState(false);
     let [data, setData] = useState([]);
 
-    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_flight_json.json";
+    let API_KEY = import.meta.env.VITE_API_KEY;
+
+    const url = `https://api.aviationstack.com/v1/flights?limit=50&access_key=${API_KEY}`;
+    const options = {method: 'GET', headers:{Accept: "application/json"}}
 
     useEffect(  () => {
         // Earlier we were using this async function diretly in the callback function of use effect, But it's a bad practice. Because
@@ -64,7 +67,7 @@ function Flights() {
                 }
                 <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                 {data.map((data, key)=>{    // fix key issue in map function
-                    return <FlightCard key={key} AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
+                    return <FlightCard key={key} AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport}/>
                 })}
                
                 </div>
