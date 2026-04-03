@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SearchForm from "../SearchForm/SearchForm"
+import Loading from "../Loading/Loading"
 
 
 const AircraftTypeCard = ({ iata, name, type }) => {
@@ -20,14 +21,15 @@ const AircraftTypeCard = ({ iata, name, type }) => {
 
 
 function SearchAircraftType() {
-    
+
     // changing the Document Title
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Aircraft Type | Flug"
     }, [])
 
 
     // State Variables
+    const [loading, setLoading] = useState(false);
     const [fetched, setFetched] = useState(false);
     const [iata, setIata] = useState("");
     const [name, setName] = useState("");
@@ -37,27 +39,38 @@ function SearchAircraftType() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
 
-        let response = await fetch(url);
-        let data = await response.json();
+            setLoading(true);
 
-        let aircraftTypeData = data.data[0];
+            let response = await fetch(url);
+            let data = await response.json();
 
-        setIata(aircraftTypeData.iata_code);
-        setName(aircraftTypeData.aircraft_name);
-        setType(aircraftTypeData.plane_type_id);
+            let aircraftTypeData = data.data[0];
 
-        setFetched(true);
+            setIata(aircraftTypeData.iata_code);
+            setName(aircraftTypeData.aircraft_name);
+            setType(aircraftTypeData.plane_type_id);
 
+            setFetched(true);
+            setLoading(false);
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     return (
         <>
             <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
             {
+                loading ?
+                    <Loading />
+                    : ""
+            }
+            {
                 fetched ?
-                <AircraftTypeCard iata={iata} name={name} type={type} />
-                : ""
+                    <AircraftTypeCard iata={iata} name={name} type={type} />
+                    : ""
             }
         </>
     )

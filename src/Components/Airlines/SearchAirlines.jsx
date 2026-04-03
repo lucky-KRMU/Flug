@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
+import Loading from "../Loading/Loading"
 
 const AirlinesCard = ({ callSign, fleetAge, hub, iata, icao, accNum, name, fleetSize, status, countryCode, foundDate, country }) => {
   return (
@@ -43,6 +44,7 @@ function SearchAirlines() {
     }, [])
 
   // Definging the State Variables
+  const [loading, setLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [callSign, setCallSign] = useState("");
   const [fleetAge, setFleetAge] = useState("");
@@ -66,6 +68,8 @@ function SearchAirlines() {
 
     try {
 
+      setLoading(true);
+
       let response = await fetch(url);
       let data = await response.json();
       let airlinesData = data.data[0];
@@ -84,7 +88,7 @@ function SearchAirlines() {
       setFoundDate(airlinesData.date_founded);
       setCountry(airlinesData.country_name);
       setFetched(true);
-
+      setLoading(false);
 
     } catch (error) {
       console.log(error);
@@ -97,7 +101,11 @@ function SearchAirlines() {
     <>
      
      <SearchForm searchBy="Airlines Name" placeholder="Airlines Name" handleFormSubmit={handleSubmit} />
-     
+      {
+        loading ?
+        <Loading />
+        : ""
+      }
       {
         fetched ?
           <AirlinesCard callSign={callSign} fleetAge={fleetAge} hub={hub} iata={iata} icao={icao} accNum={accNum} name={name} fleetSize={fleetSize} status={status} countryCode={countryCode} foundDate={foundDate} country={country} />

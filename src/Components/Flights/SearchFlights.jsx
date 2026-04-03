@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FaPlane } from 'react-icons/fa6'
 import SearchForm from '../SearchForm/SearchForm';
+import Loading from "../Loading/Loading"
 
 const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depTime, depActualTime, arrAirport, arrAirportIATA, arrTime, arrActualTime, flightNumber, airline, aircraftRegistration, aircraftICAO, liveLatitude, liveLongitude, altitude, direction, speed, landed }) => {
 
@@ -82,6 +83,7 @@ const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depT
 function SearchFlights() {
 
   // State functions(variables) required
+  const [loading, setLoading] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const [flightDate, setFlightDate] = useState("");
   const [flightStatus, setFlightStatus] = useState("");
@@ -127,6 +129,9 @@ function SearchFlights() {
 
 
     try {
+
+      setLoading(true);
+
       let data = await fetch(url);
       let response = await data.json();
       let flightData = response.data[0];
@@ -160,6 +165,8 @@ function SearchFlights() {
       setSpeed(live.speed_horizontal);
       setLanded(live.is_ground);
       setDataFetched(true);
+      setLoading(false);
+
     }
     catch (err) {
       console.log(err);
@@ -172,6 +179,11 @@ function SearchFlights() {
   return (
     <>
       <SearchForm searchBy="Flight Name" placeholder="Flight number" handleFormSubmit={handleGetData} />
+      {
+        loading ?
+        <Loading />
+        : ""
+      }
       {
         dataFetched ?
           <FlightInfo flightDate={flightDate} flightNumber={flightNumber} flightStatus={flightStatus} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />

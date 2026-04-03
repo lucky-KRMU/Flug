@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm';
-
+import Loading from "../Loading/Loading"
 
 
 const AirportCard = ({ name, iata, icao, latitude, longitude, geoName, timezone, phone, country, countryCode }) => {
@@ -40,6 +40,7 @@ function SearchAirports() {
   }, [])
 
   // state Variables for passing Information
+  const [loading, setLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [name, setName] = useState("");
   const [iata, setIata] = useState("");
@@ -62,6 +63,8 @@ function SearchAirports() {
 
     try {
 
+      setLoading(true);
+
       let response = await fetch(url);
       let data = await response.json();
       let airportData = data.data[0];
@@ -77,6 +80,7 @@ function SearchAirports() {
       setCountry(airportData.country_name);
       setCountryCode(airportData.country_iso2);
       setFetched(true);
+      setLoading(false);
 
     } catch (error) {
       console.log(error);
@@ -89,6 +93,11 @@ function SearchAirports() {
   return (
     <>
       <SearchForm searchBy="Airport Name" placeholder="Airport Name" handleFormSubmit={handleSubmit} />
+      {
+        loading ?
+        <Loading />
+        : ""
+      }
       {
         fetched ?
           <AirportCard name={name} iata={iata} icao={icao} latitude={latitude} longitude={longitude} geoName={geoName} timezone={timezone} phone={phone} country={country} countryCode={countryCode} />

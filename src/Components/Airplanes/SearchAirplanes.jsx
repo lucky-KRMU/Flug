@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
+import Loading from "../Loading/Loading"
 
 const AirplaneCard = ({ iata, airlineICAO, airlineIATA, airplaneIATA, constructionNumber, deliveryDate, engineCount, engineType, maidenFlightDate, model, registrationNumber, testRegistrationNumber, owner, series, status, productionLine, registrationDate, rollOutDate }) => {
 
@@ -54,11 +55,12 @@ const AirplaneCard = ({ iata, airlineICAO, airlineIATA, airplaneIATA, constructi
 function SearchAirplanes() {
 
   // changing the Document Title
-    useEffect(()=>{
-        document.title = "Airplane | Flug"
-    }, [])
+  useEffect(() => {
+    document.title = "Airplane | Flug"
+  }, [])
 
   // State Variables for Airplane
+  const [loading, setLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [iata, setIata] = useState("");
   const [airlineICAO, setAirlineICAO] = useState("");
@@ -86,37 +88,50 @@ function SearchAirplanes() {
   // async function to fetch the data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
 
-    let response = await fetch(url);
-    let data = await response.json();
-    let airplaneData = data.data[0];
 
-    // updating the state variables
-    setIata(airplaneData.iata_type);
-    setAirlineICAO(airplaneData.airline_icao_code);
-    setAirlineIATA(airplaneData.airline_iata_code);
-    setAirplaneIATA(airplaneData.iata_code_long);
-    setConstructionNumber(airplaneData.construction_number);
-    setDeliveryDate(airplaneData.delivery_date);
-    setEngineCount(airplaneData.engines_count);
-    SetEngineType(airplaneData.engines_type);
-    setMaidenFlightDate(airplaneData.first_flight_date);
-    setModel(airplaneData.model_code);
-    setRegistrationNumber(airplaneData.registration_number);
-    setTestRegistrationNumber(airplaneData.test_registration_number);
-    setOwner(airplaneData.plane_owner);
-    setSeries(airplaneData.plane_series);
-    setStatus(airplaneData.plane_status);
-    setProductionLine(airplaneData.production_line);
-    setRegistrationDate(airplaneData.registration_date);
-    setRollOutDate(airplaneData.rollout_date);
-    setFetched(true);
+      setLoading(true);
+
+      let response = await fetch(url);
+      let data = await response.json();
+      let airplaneData = data.data[0];
+
+      // updating the state variables
+      setIata(airplaneData.iata_type);
+      setAirlineICAO(airplaneData.airline_icao_code);
+      setAirlineIATA(airplaneData.airline_iata_code);
+      setAirplaneIATA(airplaneData.iata_code_long);
+      setConstructionNumber(airplaneData.construction_number);
+      setDeliveryDate(airplaneData.delivery_date);
+      setEngineCount(airplaneData.engines_count);
+      SetEngineType(airplaneData.engines_type);
+      setMaidenFlightDate(airplaneData.first_flight_date);
+      setModel(airplaneData.model_code);
+      setRegistrationNumber(airplaneData.registration_number);
+      setTestRegistrationNumber(airplaneData.test_registration_number);
+      setOwner(airplaneData.plane_owner);
+      setSeries(airplaneData.plane_series);
+      setStatus(airplaneData.plane_status);
+      setProductionLine(airplaneData.production_line);
+      setRegistrationDate(airplaneData.registration_date);
+      setRollOutDate(airplaneData.rollout_date);
+      setFetched(true);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
 
   }
 
   return (
     <>
       <SearchForm searchBy="Airplanes" placeholder="Registration Number" handleFormSubmit={handleSubmit} />
+      {
+        loading ?
+          <Loading />
+          : ""
+      }
       {fetched ?
         <AirplaneCard iata={iata} airlineICAO={airlineICAO} airlineIATA={airlineIATA} airplaneIATA={airplaneIATA} constructionNumber={constructionNumber} deliveryDate={deliveryDate.split("T")[0]} engineCount={engineCount} engineType={engineType} maidenFlightDate={maidenFlightDate.split("T")[0]} model={model} registrationNumber={registrationNumber} testRegistrationNumber={testRegistrationNumber} owner={owner} series={series} status={status} productionLine={productionLine} registrationDate={registrationDate} rollOutDate={rollOutDate} />
         :

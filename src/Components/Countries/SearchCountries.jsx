@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchForm from "../SearchForm/SearchForm"
+import Loading from "../Loading/Loading"
 
 
 const CountryCard = ({ capital, currCode, fips, countryIso, continent, country, currency, iso, phonePrefix, population }) => {
@@ -44,6 +45,7 @@ function SearchCountries() {
     }, [])
 
     // Necessary State Variables
+    const [loading, setLoading] = useState(false);
     const [fetched, setFetched] = useState(false);
     const [capital, setCapital] = useState("");
     const [currCode, setCurrCode] = useState("");
@@ -66,6 +68,9 @@ function SearchCountries() {
         e.preventDefault();
 
         try {
+
+            setLoading(true);
+
             let response = await fetch(url);
             let data = await response.json();
 
@@ -83,6 +88,7 @@ function SearchCountries() {
             setPhonePrefix(countryData.phone_prefix);
             setPopulation(JSON.parse(countryData.population));
             setFetched(true);
+            setLoading(false);
 
         } catch (err) {
             console.log(err);
@@ -96,6 +102,11 @@ function SearchCountries() {
     return (
         <>
             <SearchForm searchBy="Country" placeholder="Country name" handleFormSubmit={handleSubmit} />
+            {
+                loading ?
+                <Loading />
+                : ""
+            }
             {
                 fetched ?
                 <CountryCard capital={capital} currCode={currCode} fips={fips} countryIso={countryIso} continent={continent} country={country} currency={currency} iso={iso} phonePrefix={phonePrefix} population={population.toLocaleString('en-US')} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
+import Loading from "../Loading/Loading"
 
 const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, timeZone }) => {
     return (
@@ -19,8 +20,8 @@ const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, time
                         </div>
                     </div>
                     <div>
-                    <p><span className='text-blue-800 font-semibold'>GMT: </span>{gmt}</p>
-                    <p><span className='text-blue-800 font-semibold'>Time Zone: </span>{timeZone}</p>
+                        <p><span className='text-blue-800 font-semibold'>GMT: </span>{gmt}</p>
+                        <p><span className='text-blue-800 font-semibold'>Time Zone: </span>{timeZone}</p>
                     </div>
                 </div>
             </div>
@@ -31,11 +32,12 @@ const CityCard = ({ gmt, iata, country, geoname, latitude, longitude, name, time
 function SearchCities() {
 
     // changing the Document Title
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "City | Flug"
     }, [])
 
     // Necessary state variables
+    const [loading, setLoading] = useState(false);
     const [fetched, setFetched] = useState(false);
     const [gmt, setGmt] = useState("");
     const [iata, setIata] = useState("");
@@ -53,22 +55,29 @@ function SearchCities() {
     // hanldeSubmit method to fetch the data from api
     const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
 
-        let response = await fetch(url);
-        let data = await response.json();
-        let cityData = data.data[0];
+            setLoading(true);
 
-        console.log(cityData);
+            let response = await fetch(url);
+            let data = await response.json();
+            let cityData = data.data[0];
 
-        setGmt(cityData.gmt);
-        setIata(cityData.iata_code);
-        setCountry(cityData.country_iso2);
-        setGeoname(cityData.geoname_id);
-        setLatitude(cityData.latitude);
-        setLongitude(cityData.longitude);
-        setName(cityData.city_name);
-        setTimeZone(cityData.timezone);
-        setFetched(true);
+            console.log(cityData);
+
+            setGmt(cityData.gmt);
+            setIata(cityData.iata_code);
+            setCountry(cityData.country_iso2);
+            setGeoname(cityData.geoname_id);
+            setLatitude(cityData.latitude);
+            setLongitude(cityData.longitude);
+            setName(cityData.city_name);
+            setTimeZone(cityData.timezone);
+            setFetched(true);
+            setLoading(false);
+        } catch (err) {
+            console.log(err)
+        }
 
     }
 
@@ -76,9 +85,14 @@ function SearchCities() {
         <>
             <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} />
             {
-                fetched ?
-                <CityCard gmt={gmt} iata={iata} country={country} geoname={geoname} latitude={latitude} longitude={longitude} name={name} timeZone={timeZone} />
+                loading ?
+                <Loading />
                 : ""
+            }
+            {
+                fetched ?
+                    <CityCard gmt={gmt} iata={iata} country={country} geoname={geoname} latitude={latitude} longitude={longitude} name={name} timeZone={timeZone} />
+                    : ""
             }
         </>
     )
