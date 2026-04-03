@@ -15,7 +15,7 @@ const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depT
             <p className='text-blue-900 font-semibold order-2'>{flightDate}</p>
             <p className="order-1 font-semibold" >{flightStatus}</p>
           </div>
-          <div id="airportCard" className='flex justify-between items-center my-3'>
+          <div id="airportCard" className='flex md:flex-row justify-between items-center my-3 flex-col'>
             <div id="depCard">
               <h2 className='text-left text-5xl font-bold text-blue-900'>{depAirportIATA}</h2>
               <h3 className='text-left text-xl font-semibold'>{depAirport}</h3>
