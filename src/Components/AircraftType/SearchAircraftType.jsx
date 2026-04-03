@@ -38,8 +38,8 @@ function SearchAircraftType() {
 
     let API_KEY = import.meta.env.VITE_API_KEY;
 
-    // const url = `https://api.aviationstack.com/v1/aircraft_types?access_key=${API_KEY}`;
-    const url = "test_dummy_aircraft_type_data.json"
+    const url = `https://api.aviationstack.com/v1/aircraft_types?access_key=${API_KEY}`;
+    // const url = "test_dummy_aircraft_type_data.json"
     const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
     const handleSubmit = async (e) => {
