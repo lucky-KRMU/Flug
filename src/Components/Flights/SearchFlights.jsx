@@ -20,16 +20,16 @@ const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depT
               <h3 className='text-left text-xl font-semibold'>{depAirport}</h3>
               <div id="arrTime">
                 <h4 className='text-l font-semibold'>Scheduled Date & Time of Departure:</h4>
-                <div className='flex justify-between items-center'>  
-              <p className='text-left text-l text-blue-900 font-bold'>{depTime.split('T')[0]}</p>
-              <p className='text-left text-blue-900 font-semibold'>{depTime.split('T')[1].split('+')[0]}</p>
+                <div className='flex justify-between items-center'>
+                  <p className='text-left text-l text-blue-900 font-bold'>{depTime.split('T')[0]}</p>
+                  <p className='text-left text-blue-900 font-semibold'>{depTime.split('T')[1].split('+')[0]}</p>
                 </div>
               </div>
               <div id="arrActualTime">
                 <h4 className='text-l font-semibold'>Actual Date & Time of Departure:</h4>
-              <div className='flex justify-between items-center'>  
-              <p className='text-left text-l text-blue-900 font-bold'>{depActualTime.split('T')[0]}</p>
-              <p className='text-left text-blue-900 font-semibold'>{depActualTime.split('T')[1].split('+')[0]}</p>
+                <div className='flex justify-between items-center'>
+                  <p className='text-left text-l text-blue-900 font-bold'>{depActualTime.split('T')[0]}</p>
+                  <p className='text-left text-blue-900 font-semibold'>{depActualTime.split('T')[1].split('+')[0]}</p>
                 </div>
               </div>
             </div>
@@ -39,38 +39,38 @@ const FlightInfo = ({ flightDate, flightStatus, depAirport, depAirportIATA, depT
               <h3 className='text-right text-xl font-semibold'>{arrAirport}</h3>
               <div id="arrTime">
                 <h4 className='text-l font-semibold'>Scheduled Date & Time of Arrival:</h4>
-                <div className='flex justify-between items-center'>  
-              <p className='text-right text-l text-blue-900 font-bold'>{arrTime.split('T')[0]}</p>
-              <p className='text-right text-blue-900 font-semibold'>{arrTime.split('T')[1].split('+')[0]}</p>
+                <div className='flex justify-between items-center'>
+                  <p className='text-right text-l text-blue-900 font-bold'>{arrTime.split('T')[0]}</p>
+                  <p className='text-right text-blue-900 font-semibold'>{arrTime.split('T')[1].split('+')[0]}</p>
                 </div>
               </div>
               <div id="arrActualTime">
                 <h4 className='text-l font-semibold'>Estimated Date & Time of Arrival:</h4>
-              <div className='flex justify-between items-center'>  
-              <p className='text-right text-l text-blue-900 font-bold'>{arrActualTime.split('T')[0]}</p>
-              <p className='text-right text-blue-900 font-semibold'>{arrActualTime.split('T')[1].split('+')[0]}</p>
+                <div className='flex justify-between items-center'>
+                  <p className='text-right text-l text-blue-900 font-bold'>{arrActualTime.split('T')[0]}</p>
+                  <p className='text-right text-blue-900 font-semibold'>{arrActualTime.split('T')[1].split('+')[0]}</p>
                 </div>
               </div>
             </div>
           </div>
           <div id="aircraftDetails" className=' my-5'>
             <h4 className='text-xl font-semibold text-blue-950'>Aircraft Details: </h4>
-          <p><span className='font-semibold text-blue-900'>Registration:</span> {aircraftRegistration}</p>
-          <p><span className='font-semibold text-blue-900'>ICAO:</span> {aircraftICAO}</p>
+            <p><span className='font-semibold text-blue-900'>Registration:</span> {aircraftRegistration}</p>
+            <p><span className='font-semibold text-blue-900'>ICAO:</span> {aircraftICAO}</p>
           </div>
           <div id="liveDetails">
-          <h4 className='text-xl font-semibold text-blue-950'>Live Aircraft Details: </h4>
-          <p><span className='font-semibold text-blue-900'>Latitude:</span> {liveLatitude}</p>
-          <p><span className='font-semibold text-blue-900'>Longitude:</span> {liveLongitude}</p>
-          <p><span className='font-semibold text-blue-900'>Altitude:</span> {altitude}</p>
-          <p><span className='font-semibold text-blue-900'>Direction:</span> {direction}</p>
-          <p><span className='font-semibold text-blue-900'>Speed:</span> {speed} knots</p>
+            <h4 className='text-xl font-semibold text-blue-950'>Live Aircraft Details: </h4>
+            <p><span className='font-semibold text-blue-900'>Latitude:</span> {liveLatitude}</p>
+            <p><span className='font-semibold text-blue-900'>Longitude:</span> {liveLongitude}</p>
+            <p><span className='font-semibold text-blue-900'>Altitude:</span> {altitude}</p>
+            <p><span className='font-semibold text-blue-900'>Direction:</span> {direction}</p>
+            <p><span className='font-semibold text-blue-900'>Speed:</span> {speed} knots</p>
           </div>
           {
             landed ?
-            <p className='text-2xl text-center font-bold text-green-500 my-2 animate-pulse'>Landed</p>
-            :
-            <p className='text-2xl text-center font-bold my-2 text-blue-500 animate-pulse'>Airborne</p>
+              <p className='text-2xl text-center font-bold text-green-500 my-2 animate-pulse'>Landed</p>
+              :
+              <p className='text-2xl text-center font-bold my-2 text-blue-500 animate-pulse'>Airborne</p>
           }
         </div>
       </div>
@@ -116,14 +116,16 @@ function SearchFlights() {
   So, frontend doesn't throw error but something else instead of it.
   */
 
+  // changing the Document Title
+  useEffect(() => {
+    document.title = "Aircraft Type | Flug"
+  }, [])
+
   const handleGetData = async (e) => {
 
-    // changing the Document Title
-    useEffect(()=>{
-        document.title = "Aircraft Type | Flug"
-    }, [])
-    
     e.preventDefault();
+
+
     try {
       let data = await fetch(url);
       let response = await data.json();
@@ -163,7 +165,7 @@ function SearchFlights() {
       console.log(err);
     }
 
-  
+
   }
 
 
@@ -171,10 +173,10 @@ function SearchFlights() {
     <>
       <SearchForm searchBy="Flight Name" placeholder="Flight number" handleFormSubmit={handleGetData} />
       {
-        dataFetched ? 
-        <FlightInfo flightDate={flightDate} flightNumber={flightNumber} flightStatus={flightStatus} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />
-        :
-        ""
+        dataFetched ?
+          <FlightInfo flightDate={flightDate} flightNumber={flightNumber} flightStatus={flightStatus} depAirport={depAirport} depAirportIATA={depAirportIATA} depTime={depTime} depActualTime={depActualTime} arrAirport={arrAirport} arrAirportIATA={arrAirportIATA} arrTime={arrTime} arrActualTime={arrActualTime} airline={airline} aircraftRegistration={aircraftRegistration} aircraftICAO={aircraftICAO} liveLatitude={liveLatitude} liveLongitude={liveLongitude} altitude={altitude} direction={direction} speed={speed} landed={landed} />
+          :
+          ""
       }
     </>
   )
