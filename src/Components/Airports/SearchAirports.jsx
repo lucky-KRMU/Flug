@@ -55,7 +55,7 @@ function SearchAirports() {
 
 
 
-  let url = "../Dummy/dummy_airport_json.json";
+  let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_airport_json.json";
 
   const handleSubmit = async (e) => {
 

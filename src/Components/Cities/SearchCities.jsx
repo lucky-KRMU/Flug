@@ -50,7 +50,7 @@ function SearchCities() {
 
 
     // url
-    let url = "../Dummy/dummy_cities_json.json"
+    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_cities_json.json"
 
     // hanldeSubmit method to fetch the data from api
     const handleSubmit = async (e) => {

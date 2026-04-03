@@ -83,7 +83,7 @@ function SearchAirplanes() {
 
 
   // url for the dummy testing json
-  let url = "../Dummy/dummy_airplanes_json.json"
+  let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_airplanes_json.json"
 
   // async function to fetch the data
   const handleSubmit = async (e) => {

@@ -35,7 +35,7 @@ function SearchAircraftType() {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
 
-    let url = "Flug/Dummy/dummy_aircraft_type_json.json"
+    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_aircraft_type_json.json"
 
     const handleSubmit = async (e) => {
         e.preventDefault();

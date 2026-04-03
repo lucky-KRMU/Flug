@@ -60,7 +60,7 @@ function SearchCountries() {
 
 
     // url
-    let url = "../Dummy/dummy_countries_json.json"
+    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_countries_json.json"
 
     // handle Submit function to search for the country
     const handleSubmit = async (e) => {

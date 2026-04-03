@@ -60,7 +60,7 @@ function SearchAirlines() {
   const [country, setCountry] = useState("");
 
 
-  let url = "../Dummy/dummy_airlines_json.json";
+  let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_airlines_json.json";
 
   // function for fetching from api and updating the State/UI
   const handleSubmit = async (e) => {
