@@ -34,30 +34,41 @@ function SearchAircraftType() {
     const [iata, setIata] = useState("");
     const [name, setName] = useState("");
     const [type, setType] = useState("");
+    const [inputVal, setInputVal] = useState("");
 
-    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_aircraft_type_json.json"
+    let API_KEY = import.meta.env.VITE_API_KEY;
+
+    // const url = `https://api.aviationstack.com/v1/aircraft_types?access_key=${API_KEY}`;
+    const url = "test_dummy_aircraft_type_data.json"
+    const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
+
         try {
-            
+
             setLoading(true);
-            
-            let response = await fetch(url);
+
+            let response = await fetch(url, options);
             let data = await response.json();
-            
-            let aircraftTypeData = data.data[0];
-            
-            setIata(aircraftTypeData.iata_code);
-            setName(aircraftTypeData.aircraft_name);
-            setType(aircraftTypeData.plane_type_id);
-            
+
+            let aircraftTypeData = data.data;
+            console.log(aircraftTypeData)
+
+            //logic to search
+            aircraftTypeData.forEach(element => {
+                if(element.iata_code == inputVal){
+                    setIata(element.iata_code ? element.iata_code : "UNAVAILABLE");
+                    setName(element.aircraft_name ? element.aircraft_name : "UNAVAILABLE");
+                    setType(element.plane_type_id ? `ID: ${element.plane_type_id}` : "UNAVAILABLE")
+                }
+            });
+
             setFetched(true);
             setLoading(false);
 
-            
+
             // To scroll at the bottom most
             window.scrollTo({
                 top: document.body.scrollHeight,
@@ -68,9 +79,15 @@ function SearchAircraftType() {
         }
     }
 
+
+    const handleAircraftType = (e) => {
+        setInputVal(e.target.value.toUpperCase());
+    }
+
+
     return (
         <>
-            <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} />
+            <SearchForm searchBy="Aircraft type" placeholder="Aircraft IATA Code" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleAircraftType} />
             {
                 loading ?
                     <Loading />
