@@ -47,9 +47,9 @@ function Home() {
                 <h1 className='text-4xl font-semibold text-blue-950'>Contact Us</h1>
                 <div className='my-5 text-xl text-blue-900 flex flex-col items-center justify-center'>
 
-                    <p>Have questions, feedback, or suggestions? We’d love to hear from you. <br />
-                        Whether you’re exploring flights or just getting started with Flug, feel free to reach out anytime </p>
-                        <p className='w-[60%] flex justify-between items-center my-5'>
+                    <div>Have questions, feedback, or suggestions? We’d love to hear from you. <br />
+                        Whether you’re exploring flights or just getting started with Flug, feel free to reach out anytime </div>
+                        <div className='w-[60%] flex justify-between items-center my-5'>
                             <div className='flex justify-center items-center gap-1'>
                             <MdOutlineAttachEmail /> <span>Email :</span> <p>support@flug.com</p>
                             </div>
@@ -57,7 +57,7 @@ function Home() {
                             <MdOutlineInsertComment /> <p>We typically respond within 24 hours.</p>
                             </div>
                             
-                        </p>
+                        </div>
                 </div>
             </section>
         </>
