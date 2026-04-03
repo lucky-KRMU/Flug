@@ -39,9 +39,9 @@ const AirlinesCard = ({ callSign, fleetAge, hub, iata, icao, accNum, name, fleet
 function SearchAirlines() {
 
   // changing the Document Title
-    useEffect(()=>{
-        document.title = "Airlines | Flug"
-    }, [])
+  useEffect(() => {
+    document.title = "Airlines | Flug"
+  }, [])
 
   // Definging the State Variables
   const [loading, setLoading] = useState(false);
@@ -90,6 +90,13 @@ function SearchAirlines() {
       setFetched(true);
       setLoading(false);
 
+
+
+      // To scroll at the bottom most
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
     } catch (error) {
       console.log(error);
     }
@@ -99,12 +106,12 @@ function SearchAirlines() {
 
   return (
     <>
-     
-     <SearchForm searchBy="Airlines Name" placeholder="Airlines Name" handleFormSubmit={handleSubmit} />
+
+      <SearchForm searchBy="Airlines Name" placeholder="Airlines Name" handleFormSubmit={handleSubmit} />
       {
         loading ?
-        <Loading />
-        : ""
+          <Loading />
+          : ""
       }
       {
         fetched ?

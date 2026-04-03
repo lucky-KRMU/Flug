@@ -118,6 +118,14 @@ function SearchAirplanes() {
       setRollOutDate(airplaneData.rollout_date);
       setFetched(true);
       setLoading(false);
+
+
+
+      // To scroll at the bottom most
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
     } catch (err) {
       console.log(err);
     }

@@ -39,21 +39,30 @@ function SearchAircraftType() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        
         try {
-
+            
             setLoading(true);
-
+            
             let response = await fetch(url);
             let data = await response.json();
-
+            
             let aircraftTypeData = data.data[0];
-
+            
             setIata(aircraftTypeData.iata_code);
             setName(aircraftTypeData.aircraft_name);
             setType(aircraftTypeData.plane_type_id);
-
+            
             setFetched(true);
             setLoading(false);
+
+            
+            // To scroll at the bottom most
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
         } catch (err) {
             console.log(err)
         }

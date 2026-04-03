@@ -75,6 +75,13 @@ function SearchCities() {
             setTimeZone(cityData.timezone);
             setFetched(true);
             setLoading(false);
+
+
+            // To scroll at the bottom most
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
         } catch (err) {
             console.log(err)
         }
@@ -86,8 +93,8 @@ function SearchCities() {
             <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} />
             {
                 loading ?
-                <Loading />
-                : ""
+                    <Loading />
+                    : ""
             }
             {
                 fetched ?

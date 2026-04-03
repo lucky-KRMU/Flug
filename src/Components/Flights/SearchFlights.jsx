@@ -167,6 +167,14 @@ function SearchFlights() {
       setDataFetched(true);
       setLoading(false);
 
+
+
+      // To scroll at the bottom most
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+
     }
     catch (err) {
       console.log(err);
@@ -181,8 +189,8 @@ function SearchFlights() {
       <SearchForm searchBy="Flight Name" placeholder="Flight number" handleFormSubmit={handleGetData} />
       {
         loading ?
-        <Loading />
-        : ""
+          <Loading />
+          : ""
       }
       {
         dataFetched ?

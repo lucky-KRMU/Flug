@@ -82,6 +82,14 @@ function SearchAirports() {
       setFetched(true);
       setLoading(false);
 
+
+
+
+      // To scroll at the bottom most
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
     } catch (error) {
       console.log(error);
     }
@@ -95,8 +103,8 @@ function SearchAirports() {
       <SearchForm searchBy="Airport Name" placeholder="Airport Name" handleFormSubmit={handleSubmit} />
       {
         loading ?
-        <Loading />
-        : ""
+          <Loading />
+          : ""
       }
       {
         fetched ?

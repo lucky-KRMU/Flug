@@ -40,7 +40,7 @@ const CountryCard = ({ capital, currCode, fips, countryIso, continent, country, 
 function SearchCountries() {
 
     // changing the Document Title
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Country | Flug"
     }, [])
 
@@ -90,6 +90,14 @@ function SearchCountries() {
             setFetched(true);
             setLoading(false);
 
+
+
+            // To scroll at the bottom most
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+
         } catch (err) {
             console.log(err);
         }
@@ -104,13 +112,13 @@ function SearchCountries() {
             <SearchForm searchBy="Country" placeholder="Country name" handleFormSubmit={handleSubmit} />
             {
                 loading ?
-                <Loading />
-                : ""
+                    <Loading />
+                    : ""
             }
             {
                 fetched ?
-                <CountryCard capital={capital} currCode={currCode} fips={fips} countryIso={countryIso} continent={continent} country={country} currency={currency} iso={iso} phonePrefix={phonePrefix} population={population.toLocaleString('en-US')} />
-                : ""
+                    <CountryCard capital={capital} currCode={currCode} fips={fips} countryIso={countryIso} continent={continent} country={country} currency={currency} iso={iso} phonePrefix={phonePrefix} population={population.toLocaleString('en-US')} />
+                    : ""
             }
 
         </>
