@@ -1,0 +1,100 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 6,
+    "total": 1669022
+  },
+  "data": [
+    {
+      "id": "1",
+      "capital": "New Delhi",
+      "currency_code": "INR",
+      "fips_code": "IN",
+      "country_iso2": "IN",
+      "country_iso3": "IND",
+      "continent": "Asia",
+      "country_id": "IND",
+      "country_name": "India",
+      "currency_name": "Indian Rupee",
+      "country_iso_numeric": "356",
+      "phone_prefix": "+91",
+      "population": "1428000000"
+    },
+    {
+      "id": "2",
+      "capital": "Washington, D.C.",
+      "currency_code": "USD",
+      "fips_code": "US",
+      "country_iso2": "US",
+      "country_iso3": "USA",
+      "continent": "North America",
+      "country_id": "USA",
+      "country_name": "United States",
+      "currency_name": "US Dollar",
+      "country_iso_numeric": "840",
+      "phone_prefix": "+1",
+      "population": "331000000"
+    },
+    {
+      "id": "3",
+      "capital": "London",
+      "currency_code": "GBP",
+      "fips_code": "UK",
+      "country_iso2": "GB",
+      "country_iso3": "GBR",
+      "continent": "Europe",
+      "country_id": "GBR",
+      "country_name": "United Kingdom",
+      "currency_name": "Pound Sterling",
+      "country_iso_numeric": "826",
+      "phone_prefix": "+44",
+      "population": "67000000"
+    },
+    {
+      "id": "4",
+      "capital": "Tokyo",
+      "currency_code": "JPY",
+      "fips_code": "JA",
+      "country_iso2": "JP",
+      "country_iso3": "JPN",
+      "continent": "Asia",
+      "country_id": "JPN",
+      "country_name": "Japan",
+      "currency_name": "Japanese Yen",
+      "country_iso_numeric": "392",
+      "phone_prefix": "+81",
+      "population": "125000000"
+    },
+    {
+      "id": "5",
+      "capital": "Canberra",
+      "currency_code": "AUD",
+      "fips_code": "AS",
+      "country_iso2": "AU",
+      "country_iso3": "AUS",
+      "continent": "Oceania",
+      "country_id": "AUS",
+      "country_name": "Australia",
+      "currency_name": "Australian Dollar",
+      "country_iso_numeric": "036",
+      "phone_prefix": "+61",
+      "population": "26000000"
+    },
+    {
+      "id": "6",
+      "capital": "Abu Dhabi",
+      "currency_code": "AED",
+      "fips_code": "AE",
+      "country_iso2": "AE",
+      "country_iso3": "ARE",
+      "continent": "Asia",
+      "country_id": "ARE",
+      "country_name": "United Arab Emirates",
+      "currency_name": "UAE Dirham",
+      "country_iso_numeric": "784",
+      "phone_prefix": "+971",
+      "population": "10000000"
+    }
+  ]
+}

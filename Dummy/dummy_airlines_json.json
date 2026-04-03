@@ -1,0 +1,78 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 4,
+    "total": 1669022
+  },
+  "data": [
+    {
+      "id": "1",
+      "fleet_average_age": 6.5,
+      "airline_id": "AI",
+      "callsign": "AIR INDIA",
+      "hub_code": "DEL",
+      "iata_code": "AI",
+      "icao_code": "AIC",
+      "country_iso2": "IN",
+      "date_founded": "1932",
+      "iata_prefix_accounting": "098",
+      "airline_name": "Air India",
+      "country_name": "India",
+      "fleet_size": 120,
+      "status": "active",
+      "type": "scheduled"
+    },
+    {
+      "id": "2",
+      "fleet_average_age": 5.2,
+      "airline_id": "6E",
+      "callsign": "INDIGO",
+      "hub_code": "DEL",
+      "iata_code": "6E",
+      "icao_code": "IGO",
+      "country_iso2": "IN",
+      "date_founded": "2006",
+      "iata_prefix_accounting": "312",
+      "airline_name": "IndiGo",
+      "country_name": "India",
+      "fleet_size": 300,
+      "status": "active",
+      "type": "lowcost"
+    },
+    {
+      "id": "3",
+      "fleet_average_age": 7.8,
+      "airline_id": "EK",
+      "callsign": "EMIRATES",
+      "hub_code": "DXB",
+      "iata_code": "EK",
+      "icao_code": "UAE",
+      "country_iso2": "AE",
+      "date_founded": "1985",
+      "iata_prefix_accounting": "176",
+      "airline_name": "Emirates",
+      "country_name": "United Arab Emirates",
+      "fleet_size": 260,
+      "status": "active",
+      "type": "scheduled"
+    },
+    {
+      "id": "4",
+      "fleet_average_age": 11.3,
+      "airline_id": "BA",
+      "callsign": "SPEEDBIRD",
+      "hub_code": "LHR",
+      "iata_code": "BA",
+      "icao_code": "BAW",
+      "country_iso2": "GB",
+      "date_founded": "1974",
+      "iata_prefix_accounting": "125",
+      "airline_name": "British Airways",
+      "country_name": "United Kingdom",
+      "fleet_size": 280,
+      "status": "active",
+      "type": "scheduled"
+    }
+  ]
+}

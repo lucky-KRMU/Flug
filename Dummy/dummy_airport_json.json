@@ -1,0 +1,55 @@
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 3,
+    "total": 1669022
+  },
+  "data": [
+    {
+      "id": "1",
+      "airport_name": "Indira Gandhi International Airport",
+      "iata_code": "DEL",
+      "icao_code": "VIDP",
+      "latitude": 28.5562,
+      "longitude": 77.1000,
+      "geoname_id": "1273294",
+      "timezone": "Asia/Kolkata",
+      "gmt": "+5.5",
+      "phone_number": "+91 11 2565 2011",
+      "country_name": "India",
+      "country_iso2": "IN",
+      "city_iata_code": "DEL"
+    },
+    {
+      "id": "2",
+      "airport_name": "Chhatrapati Shivaji Maharaj International Airport",
+      "iata_code": "BOM",
+      "icao_code": "VABB",
+      "latitude": 19.0896,
+      "longitude": 72.8656,
+      "geoname_id": "1275339",
+      "timezone": "Asia/Kolkata",
+      "gmt": "+5.5",
+      "phone_number": "+91 22 6685 1010",
+      "country_name": "India",
+      "country_iso2": "IN",
+      "city_iata_code": "BOM"
+    },
+    {
+      "id": "3",
+      "airport_name": "Dubai International Airport",
+      "iata_code": "DXB",
+      "icao_code": "OMDB",
+      "latitude": 25.2532,
+      "longitude": 55.3657,
+      "geoname_id": "292223",
+      "timezone": "Asia/Dubai",
+      "gmt": "+4",
+      "phone_number": "+971 4 224 5555",
+      "country_name": "United Arab Emirates",
+      "country_iso2": "AE",
+      "city_iata_code": "DXB"
+    }
+  ]
+}
