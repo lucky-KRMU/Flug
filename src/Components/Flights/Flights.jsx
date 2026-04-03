@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { FaPlane, FaPlaneDeparture } from 'react-icons/fa';
-
+import Loading from "../Loading/Loading"
 
 function FlightCard({ AirLines, IATA, FROM, TO, FROM_TITLE, TO_TITLE, LandingStatus }) {
     return (
@@ -22,6 +22,7 @@ function FlightCard({ AirLines, IATA, FROM, TO, FROM_TITLE, TO_TITLE, LandingSta
 
 function Flights() {
 
+    let [loading, setLoading] = useState(false);
     let [data, setData] = useState([]);
 
     let url = "Dummy/dummy_flight_json.json";
@@ -31,11 +32,17 @@ function Flights() {
         // The useEffect hook expects and considers a promise as a function that would be used in return that would run after everything is done. Hence, This approach is used for the safety and best practices. the earlier would have considered it as a return and would have re-rendered it several times.
         // this exact thing was giving the  error of destroy is not a function in react router
        const loadData =  async ()=>{
-            let data = await fetch(url);
-            let response = await data.json();
-            let flightData = response.data;
-            setData(flightData);
-            console.log(flightData);
+            try{
+                setLoading(true)
+                let data = await fetch(url);
+                let response = await data.json();
+                let flightData = response.data;
+                setData(flightData);
+                setLoading(false)
+                console.log(flightData);
+            } catch (err) {
+                console.log(err)
+            }
         }
         loadData();
 
@@ -50,6 +57,11 @@ function Flights() {
         <>
             <h2 className='text-3xl py-4 w-full h-30  text-blue-950 font-bold font-[Radio_Canada] flex items-center justify-center gap-4 cursor-pointer'>Live Flights Data<FaPlaneDeparture className='hover:scale-125' /></h2>
             <div className='w-full h-auto flex justify-center items-center '>
+                {
+                    loading ?
+                    <Loading />
+                    : ""
+                }
                 <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                 {data.map((data, key)=>{    // fix key issue in map function
                     return <FlightCard key={key} AirLines={data.airline.name} IATA={data.flight.iata} FROM={data.departure.iata} FROM_TITLE={data.departure.airport} TO={data.arrival.iata} TO_TITLE={data.arrival.airport} LandingStatus={data.live.is_ground}/>
