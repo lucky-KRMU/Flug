@@ -47,10 +47,13 @@ function SearchCities() {
     const [longitude, setLongitude] = useState("");
     const [name, setName] = useState("");
     const [timeZone, setTimeZone] = useState("");
+    const [inputVal, setInputVal] = useState("");
 
+    let API_KEY = import.meta.env.VITE_API_KEY;
 
     // url
-    let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_cities_json.json"
+    let url = `https://api.aviationstack.com/v1/cities?iata_code=${inputVal}&access_key=${API_KEY}`;
+    const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
     // hanldeSubmit method to fetch the data from api
     const handleSubmit = async (e) => {
@@ -59,20 +62,20 @@ function SearchCities() {
 
             setLoading(true);
 
-            let response = await fetch(url);
+            let response = await fetch(url, options);
             let data = await response.json();
             let cityData = data.data[0];
 
             console.log(cityData);
 
-            setGmt(cityData.gmt);
-            setIata(cityData.iata_code);
-            setCountry(cityData.country_iso2);
-            setGeoname(cityData.geoname_id);
-            setLatitude(cityData.latitude);
-            setLongitude(cityData.longitude);
-            setName(cityData.city_name);
-            setTimeZone(cityData.timezone);
+            setGmt(cityData.gmt ? cityData.gmt : "UNAVAILABLE");
+            setIata(cityData.iata_code ? cityData.iata_code : "UNAVAILABLE");
+            setCountry(cityData.country_iso2 ? cityData.country_iso2 : "UNAVAILABLE");
+            setGeoname(cityData.geoname_id ? cityData.geoname_id : "UNAVAILABLE");
+            setLatitude(cityData.latitude ? cityData.latitude : "UNAVAILABLE");
+            setLongitude(cityData.longitude ? cityData.longitude : "UNAVAILABLE");
+            setName(cityData.city_name ? cityData.city_name : "UNAVAILABLE");
+            setTimeZone(cityData.timezone ? cityData.timezone : "UNAVAILABLE");
             setFetched(true);
             setLoading(false);
 
@@ -88,9 +91,14 @@ function SearchCities() {
 
     }
 
+
+    const handleCity = (e) => {
+        setInputVal(e.target.value.toUpperCase())
+    }
+
     return (
         <>
-            <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} />
+            <SearchForm searchBy="City" placeholder="City Name" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleCity} />
             {
                 loading ?
                     <Loading />
