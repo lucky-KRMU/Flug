@@ -80,10 +80,13 @@ function SearchAirplanes() {
   const [productionLine, setProductionLine] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
   const [rollOutDate, setRollOutDate] = useState("");
+  const [inputVal, setInputVal] = useState("");
 
 
-  // url for the dummy testing json
-  let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_airplanes_json.json"
+  let API_KEY = import.meta.env.VITE_API_KEY;
+
+  const url = `https://api.aviationstack.com/v1/airplanes?registration_number=${inputVal}&access_key=${API_KEY}`;
+  const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
   // async function to fetch the data
   const handleSubmit = async (e) => {
@@ -93,29 +96,29 @@ function SearchAirplanes() {
 
       setLoading(true);
 
-      let response = await fetch(url);
+      let response = await fetch(url, options);
       let data = await response.json();
       let airplaneData = data.data[0];
 
       // updating the state variables
-      setIata(airplaneData.iata_type);
-      setAirlineICAO(airplaneData.airline_icao_code);
-      setAirlineIATA(airplaneData.airline_iata_code);
-      setAirplaneIATA(airplaneData.iata_code_long);
-      setConstructionNumber(airplaneData.construction_number);
-      setDeliveryDate(airplaneData.delivery_date);
-      setEngineCount(airplaneData.engines_count);
-      SetEngineType(airplaneData.engines_type);
-      setMaidenFlightDate(airplaneData.first_flight_date);
-      setModel(airplaneData.model_code);
-      setRegistrationNumber(airplaneData.registration_number);
-      setTestRegistrationNumber(airplaneData.test_registration_number);
-      setOwner(airplaneData.plane_owner);
-      setSeries(airplaneData.plane_series);
-      setStatus(airplaneData.plane_status);
-      setProductionLine(airplaneData.production_line);
-      setRegistrationDate(airplaneData.registration_date);
-      setRollOutDate(airplaneData.rollout_date);
+      setIata(airplaneData.iata_type ? airplaneData.iata_type : "UNAVAILABLE");
+      setAirlineICAO(airplaneData.airline_icao_code ? airplaneData.airline_iata_code : "UNAVAILABLE");
+      setAirlineIATA(airplaneData.airline_iata_code ? airplaneData.airline_iata_code : "UNAVAIABLE");
+      setAirplaneIATA(airplaneData.iata_code_long ? airplaneData.iata_code_long : "UNAVAILABLE");
+      setConstructionNumber(airplaneData.construction_number ? airplaneData.construction_number : "UNAVAILABLE");
+      setDeliveryDate(airplaneData.delivery_date ? airplaneData.delivery_date : "UNAVAILABLE");
+      setEngineCount(airplaneData.engines_count ? airplaneData.engines_count : "UNAVAILABLE");
+      SetEngineType(airplaneData.engines_type ? airplaneData.engines_type : "UNAVAILABLE");
+      setMaidenFlightDate(airplaneData.first_flight_date ? airplaneData.first_flight_date : "UNAVAILABLE");
+      setModel(airplaneData.model_code ? airplaneData.model_code : "UNAVAILABLE");
+      setRegistrationNumber(airplaneData.registration_number ? airplaneData.registration_number : "UNAVAILABLE");
+      setTestRegistrationNumber(airplaneData.test_registration_number ? airplaneData.test_registration_number : "UNAVAILABLE");
+      setOwner(airplaneData.plane_owner ? airplaneData.plane_owner : "UNAVAILABLE");
+      setSeries(airplaneData.plane_series ? airplaneData.plane_series : "UNAVAILABLE");
+      setStatus(airplaneData.plane_status ? airplaneData.plane_status : "UNAVAILABLE");
+      setProductionLine(airplaneData.production_line ? airplaneData.production_line : "UNAVAILABLE");
+      setRegistrationDate(airplaneData.registration_date ? airplaneData.registration_date : "UNAVAILABLE");
+      setRollOutDate(airplaneData.rollout_date ? airplaneData.rollout_date : "UNAVAILABLE");
       setFetched(true);
       setLoading(false);
 
@@ -132,9 +135,15 @@ function SearchAirplanes() {
 
   }
 
+
+  const handleAirplane = (e) => {
+    setInputVal(e.target.value.toUpperCase())
+  }
+
+
   return (
     <>
-      <SearchForm searchBy="Airplanes" placeholder="Registration Number" handleFormSubmit={handleSubmit} />
+      <SearchForm searchBy="Airplanes" placeholder="Registration Number" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleAirplane} />
       {
         loading ?
           <Loading />

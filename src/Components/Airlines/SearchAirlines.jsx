@@ -74,7 +74,7 @@ function SearchAirlines() {
 
       setLoading(true);
 
-      let response = await fetch(url);
+      let response = await fetch(url, options);
       let data = await response.json();
       let airlinesData = data.data[0];
 
