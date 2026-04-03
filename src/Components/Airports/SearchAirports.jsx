@@ -52,10 +52,15 @@ function SearchAirports() {
   const [phone, setPhone] = useState("");
   const [country, setCountry] = useState("");
   const [countryCode, setCountryCode] = useState("");
+  const [inputVal, setInputVal] = useState("");
+
+  let API_KEY = import.meta.env.VITE_API_KEY;
 
 
+  const url =`https://api.aviationstack.com/v1/airports?iata_code=${inputVal}&access_key=${API_KEY}`;
+  const options = { method: 'GET', headers: { Accept: 'application/json' } };
 
-  let url = "https://lucky-krmu.github.io/Flug/Dummy/dummy_airport_json.json";
+
 
   const handleSubmit = async (e) => {
 
@@ -69,16 +74,16 @@ function SearchAirports() {
       let data = await response.json();
       let airportData = data.data[0];
 
-      setName(airportData.airport_name);
-      setIata(airportData.iata_code);
-      setIcao(airportData.icao_code);
-      setLatitude(airportData.latitude);
-      setLongitude(airportData.longitude);
-      setGeoName(airportData.geoname_id);
-      setTimezone(airportData.timezone);
-      setPhone(airportData.phone_number);
-      setCountry(airportData.country_name);
-      setCountryCode(airportData.country_iso2);
+      setName(airportData.airport_name ? airportData.airport_name : "UNAVAILABLE");
+      setIata(airportData.iata_code ? airportData.iata_code : "UNAVAILABLE");
+      setIcao(airportData.icao_code ? airportData.icao_code : "UNAVAILABLE");
+      setLatitude(airportData.latitude ? airportData.latitude : "UNAVAILABLE");
+      setLongitude(airportData.longitude ? airportData.longitude : "UNAVAILABLE");
+      setGeoName(airportData.geoname_id ? airportData.geoname_id : "UNAVAILABLE");
+      setTimezone(airportData.timezone ? airportData.timezone : "UNAVILABLE");
+      setPhone(airportData.phone_number ? airportData.phone_number : "UNAVILABLE");
+      setCountry(airportData.country_name ? airportData.country_name : "UNAVAILABLE");
+      setCountryCode(airportData.country_iso2 ? airportData.country_iso2 : "UNAVILABLE");
       setFetched(true);
       setLoading(false);
 
@@ -96,11 +101,13 @@ function SearchAirports() {
 
   }
 
-
+  const handleAirport = (e) => {
+    setInputVal(e.target.value.toUpperCase());
+  }
 
   return (
     <>
-      <SearchForm searchBy="Airport Name" placeholder="Airport Name" handleFormSubmit={handleSubmit} />
+      <SearchForm searchBy="Airport Name" placeholder="IATA" handleFormSubmit={handleSubmit} value={inputVal} handleChange={handleAirport} />
       {
         loading ?
           <Loading />
